@@ -20,8 +20,8 @@ description: 这两周调研weex，总结使用过程中遇到的问题
 - [集成 Devtools 到 Android](https://weex.incubator.apache.org/cn/references/advanced/integrate-devtool-to-android.html) 也没成功。
 - 各终端的兼容性不好，在 web 端正常显示的程序编译后往往会出现兼容性问题，且因为无法调试整个系统导致修改起来极其麻烦。
 - `weex-toolkit` 可以直接通过命令行编译生成 apk 等 native 文件。
-## 4. 社区    
- 官方文档真的太少、太简单了。  
- github相关源码的issue也很少。
+## 4. 社区
+官方文档真的太少、太简单了。  
+github相关源码的issue也很少。
 ---
 #### ps: [关于weex的一些issue汇总](https://github.com/alibaba/weex/issues/1494)
