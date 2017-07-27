@@ -10,7 +10,7 @@ description: 这两周调研weex，总结使用过程中遇到的问题
 ## 2. 开发过程
 - 官方提供的标签过少。
 - 不支持 z-index。
-- ~~~ <div> ~~~ 不支持 overflow-y。
+- ``` <div> ``` 不支持 overflow-y。
 - `<slide>` 轮播图标签中 `<indicator>` 指示器点的样式没有成功修改过。
 - `<transition>` 标签在多个试图切换过程中会出现混乱的情况(**是 weex 的问题还是 vue 的问题待调查**)。
 - 调用 android 和 ios 系统功能的 api 几乎没有。大部分都要通过自己封装原生的代码来实现功能。
