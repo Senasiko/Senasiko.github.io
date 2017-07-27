@@ -23,5 +23,5 @@ description: 这两周调研weex，总结使用过程中遇到的问题
 ## 4. 社区
 官方文档真的太少、太简单了。  
 github相关源码的issue也很少。
----
+-----
 #### ps: [关于weex的一些issue汇总](https://github.com/alibaba/weex/issues/1494)
