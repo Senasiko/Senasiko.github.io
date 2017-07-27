@@ -65,7 +65,9 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   use_coderay: true
-
+  syntax_highlighter_opts:
+    span:
+        line_numbers: false
   coderay:
     coderay_line_numbers: nil
     coderay_line_numbers_start: 1
