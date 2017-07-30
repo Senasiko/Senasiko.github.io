@@ -1,6 +1,7 @@
 ---
 layout: post
 title: react-navigation 结合 redux 使用之后 state 和 action 无法传递
+description: react-navigation 结合 redux 使用之后 state 和 action 无法传递
 tags: ['react-native', 'redux', 'navigation']
 share: true
 date: 2017-07-28

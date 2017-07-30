@@ -3,7 +3,6 @@ layout: post
 title: weex使用过程中遇到的问题
 description: 这两周调研weex，总结使用过程中遇到的问题
 ---
-# weex遇到的问题
 ## 1. 开发环境
 目前官方提供的工具为 [weex-toolkit](https://github.com/weexteam/weex-toolkit) 按照文档即可完成环境搭建。     
 另一个可以用的开发环境 [weex-hackernews](https://github.com/weexteam/weex-hackernews)

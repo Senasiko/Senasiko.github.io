@@ -1,6 +1,7 @@
 ---
 layout: post
 title: react-native起步易错点记录
+description: react-native起步易错点记录
 share: true
 tags: ['react-native']
 date: 2017-07-26
