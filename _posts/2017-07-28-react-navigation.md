@@ -72,14 +72,16 @@ state和action都没有传递，确定是路由组件的问题
 ### 原因解释
 该问题是因为navigation组件的加入导致store的数据无法向下传递。在navigation加入之前仅需把根组件和store connect就好，但是加入之后就不行了。     
 解决办法有两个：    
-1. 把store加入screenProps
+1) 把store加入screenProps      
+
 ```js
 <StackRouter navigation={addNavigationHelpers({
                  state: this.props.router
-             })} screenProps = {this.props}
-```
+             })} screenProps = {this.props}/>       
+```     
+
 但是这种办法会把整个state都传递给所有的子组件
-2. 给每个组件connect
+2) 给每个组件connect
 在子组件的view.js里导出connect后的组件
 ```js
 
