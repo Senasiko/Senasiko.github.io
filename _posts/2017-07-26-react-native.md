@@ -3,6 +3,7 @@ layout: post
 title: react-native起步易错点记录
 share: true
 tags: ['react-native']
+date: 2017-07-26
 ---
 #### 按照 [react-native中文文档](http://reactnative.cn/docs/0.46/getting-started.html) 起步
 
