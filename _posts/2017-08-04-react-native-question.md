@@ -24,3 +24,7 @@ switch(action.type){
 default: return state;break;
 }
 ```
+
+## react-native run-android 时报 cannot delete path ... 错误
+### 解决办法
+`cd android && gradlew.bat clean`
