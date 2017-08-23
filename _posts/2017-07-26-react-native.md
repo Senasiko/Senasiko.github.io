@@ -38,6 +38,8 @@ const styles = StyleSheet.create({
 - 在iOS上使用http链接的图片地址可能不会显示，参见[这篇说明修改](https://segmentfault.com/a/1190000002933776)。
 - 可以使用应用内的开发者菜单中的“FPS Monitor”工具来监控应用的帧率。
 - android studio sdk配置必须6.0
+- react 中 条件渲染可以这样写 `{isTrue && <div></div>}`
+- react 给子元素传组件 `<Child div={<div />}/>`
 
 ## 常用网站
 - [react-navigation使用技巧](http://www.jianshu.com/p/2f575cc35780)
