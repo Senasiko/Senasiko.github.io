@@ -3,8 +3,8 @@ layout: page
 permalink: /about/
 title: About Me
 tags: [about]
-image:
-  feature: abstract-12.jpg
+<!-- image:
+  feature: abstract-12.jpg -->
 comments: true
 share: true
 ---
@@ -28,10 +28,3 @@ share: true
 
 
 `任性的`扫一下吧~ ^_^
-
-<figure>
-  <a href="/images/alipay.png">
-    <img src="/images/alipay.png" alt="home" />
-  </a>
-  <figcaption>我的支付宝</figcaption>
-</figure>
