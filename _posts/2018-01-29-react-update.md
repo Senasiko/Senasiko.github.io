@@ -1,14 +1,14 @@
 ---
 layout: post
-title: react redux reselector 更新机制验证
-description: react redux reselector 更新机制验证
+title: react redux reselect 更新机制验证
+description: react redux reselect 更新机制验证
 share: true
-tags: ['react', 'redux', 'reselector', 'vue', 'observer']
+tags: ['react', 'redux', 'reselect', 'vue', 'observer']
 date: 2018-01-29
 ---
 react 本身更新数组和对象，类似于 array.push() 时，是否重新渲染组件呢？   
 react + redux 呢？    
-react + redux + reselector 呢？   
+react + redux + reselect 呢？   
 ## react
 ### 更新 state
 因 `react component` 更新状态的方式为 `this.setState()`, 所以每次都会重新渲染，不过不改变引用的情况下，新老状态值会保持一致
@@ -160,7 +160,7 @@ state => {
   <img src="../images/react-update/redux-update.png" alt="redux-update">
 </div>
 
-### react + redux + reselector
+### react + redux + reselect
 当 `redux state` 改变，会执行所有的 `mapStateToProps`，执行 `createSelector` 中的 `state array`，这里面的值没有改变时，直接返回上次的值，如果更新，执行 `selector`， 然后 `redux` 会再进行一次检查。
 ```javascript
 export const getToDoList = createSelector(
