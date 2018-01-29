@@ -65,7 +65,7 @@ react + redux + reselector 呢？
   <img src="../images/react-update/react-update-state.png" alt="react-update-state">
 </div>
 ### prop 更新
-当 `children component` 为 `PureComponent` 时，父组件状态修改但不更改引用，父组件重新渲染，子组件会执行 `componentWillReceiveProps` 但不会重新渲染，但是这个时候 `setState()` 会重新渲染。
+当 `children component` 为 `PureComponent` 时，父组件状态修改但不更改引用，父组件重新渲染，子组件会执行 `componentWillReceiveProps` 但不会重新渲染，但是这个时候 `setState({state: newState})` 会重新渲染。
 ```javascript
   import React, { PureComponent } from 'react';
 
