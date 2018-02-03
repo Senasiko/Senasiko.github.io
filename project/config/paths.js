@@ -10,4 +10,5 @@ module.exports = {
   srcPath,
   homePage,
   viewPath: resolveSrc('views'),
+  postView: resolveHome('posts'),
 }
