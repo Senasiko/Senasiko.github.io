@@ -6,12 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./script/build.js",
-    "server": "http-server .."
+    "server": "http-server .. -p 7777"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "fs-extra": "^5.0.0",
+    "http-server": "^0.11.1",
+    "markdown": "^0.5.0",
     "pug": "^2.0.0-rc.4"
   }
 }

@@ -1,3 +1,5 @@
-extends ./index
+extends ./layout
 block content
-  h1 213
+  h1= postName
+  .markdown-body
+    != content
