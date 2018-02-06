@@ -3,10 +3,15 @@ html
     title 我的站点 - #{title}
     block style
       link(href=`/${staticPath}/css/markdown.css`, rel='stylesheet')
-    block scripts
   body
     block left
     block content
     block foot
       #footer
         p 一些页脚的内容
+    block script
+      scipt
+        :javascript
+          document.body.innerHeight = window.innerHeight;
+          document.body.innerWidth = window.innerWidth;
+
