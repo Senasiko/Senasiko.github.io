@@ -2,16 +2,21 @@ html
   head
     title 我的站点 - #{title}
     block style
+      link(href=`/${staticPath}/css/app.css`, rel='stylesheet')
       link(href=`/${staticPath}/css/markdown.css`, rel='stylesheet')
+      link
   body
     block left
     block content
+      #app
     block foot
       #footer
         p 一些页脚的内容
     block script
-      scipt
-        :javascript
-          document.body.innerHeight = window.innerHeight;
-          document.body.innerWidth = window.innerWidth;
+      script(src=`/${staticPath}/js/vue.manifest.js`)
+      script(src=`/${staticPath}/js/vue.vendor.js`)
+      script(src=`/${staticPath}/js/vue.app.js`)
+      script.
+        document.body.innerHeight = window.innerHeight;
+        document.body.innerWidth = window.innerWidth;
 

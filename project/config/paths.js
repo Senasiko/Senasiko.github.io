@@ -8,11 +8,15 @@ const homePage = path.resolve(__dirname, '../../');
 const resolveHome = relativePath => path.resolve(homePage, relativePath);
 
 module.exports = {
+  pathDir: __dirname,
+  scriptDir: path.resolve(__dirname, '../script'),
   srcPath,
   homePage,
   postsDir: resolveSrc('__posts'),
   staticDir: resolveSrc(config.staticPath),
   viewDir: resolveSrc('views'),
+  vueDistPath: resolveSrc('components/vues/dist'),
+
   postView: resolveHome('posts'),
   staticHome: resolveHome(config.staticPath),
 };

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./script/build.js",
-    "server": "http-server .. -p 7777"
+    "server": "http-server .. -p 7778"
   },
   "author": "",
   "license": "ISC",
