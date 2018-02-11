@@ -10,12 +10,11 @@ const params = process.argv[2];
 
 const copyFileToStatic = (src) =>  {
   process.stdout.write(`copy ${params}\nsrc: ${src}\n`);
-  // delete old precache
-  let precaches = fs.readdirSync(paths.homePage).find(filename => filename.match(/precache-manifest/));
-  precaches && precaches[0] && fs.removeSync(path.join(paths.homePage, precaches[0]));
+  // delete old css dir
+  fs.removeSync(path.join(paths.homePage, 'css/'));
 
   fs.copySync(src, paths.homePage, {
-    filter: (src, dest) => !src.match(/(index\.html)|(dist\/css)/)
+    filter: (src, dest) => !src.match(/(index\.html)/)
   });
 };
 

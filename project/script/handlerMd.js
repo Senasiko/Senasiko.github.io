@@ -33,11 +33,11 @@ const parseFile = fileName => {
   let mdContent = fs.readFileSync(getMdFileStaticPath(fileName)).toString();
   // match config and content
   let hasConfig = mdContent.match(/---\n((?:.|\n)*)\n---\n((?:.|\n)*)/);
-  let content = markdown.toHTML(hasConfig? RegExp.$2: mdContent);
+  let content = markdown.toHTML(hasConfig? RegExp.$2: mdContent) + '';
   let config = {};
   // if hasConfig, parse it
   if (hasConfig) {
-    let configArea = RegExp.$1;
+    let configArea = hasConfig[1];
     // parse to config item
     let configItems = configArea.split(/\n+/);
     for (item of configItems) {

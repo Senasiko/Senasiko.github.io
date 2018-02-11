@@ -1,1 +1,17 @@
 extends ./layout
+block content
+  #app
+  #content
+    != `${mds}`
+append script
+  -var markdowns = [];
+  each md in mds
+    -markdowns.push(md)
+  script(type="text/javascript").
+    $(document).ready(function() {
+      var list = window.setPostList('#app', {
+        mounted: function() {
+          list.getRef().init(!{mdsStr});
+        }
+      });
+    })

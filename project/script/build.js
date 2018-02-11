@@ -24,9 +24,10 @@ const renderIndex = compilePugFile('index.pug');
 // compile post
 const renderPost = compilePugFile('post.pug');
 
-writeHtmlFile('.', renderIndex);
-
 let mds = handleMdFile();
+
+writeHtmlFile('.', renderIndex, { mds, mdsStr: JSON.stringify(mds) });
+
 for (let md of mds) {
   writeHtmlFile(md.fileDir, renderPost, md);
 }
