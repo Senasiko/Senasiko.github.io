@@ -1,0 +1,116 @@
+body {
+  background: #f7f7f7;
+  overflow: hidden;
+  display: flex;
+}
+.flex {
+  flex: 1;
+}
+.panel {
+  background: #fff;
+  box-shadow: 0 0 20px -3px;
+}
+.left-container {
+  flex: 0 0 300px;
+  height: 100%;
+  display: inline-block;
+}
+.user-msg {
+  flex: 0 0 300px;
+  height: 100%;
+  display: inline-block;
+  background: #fff;
+  box-shadow: 0 0 20px -3px;
+  margin-top: 200px;
+  position: relative;
+  text-align: center;
+}
+.user-msg::before {
+  content: '';
+  margin-top: -200px;
+  display: block;
+  height: 200px;
+  background-color: #2f54eb;
+}
+.user-msg img {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+  margin-top: -75px;
+}
+.right-container {
+  display: inline-block;
+  flex: 1;
+  overflow-x: hidden;
+  align-self: start;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 980px;
+}
+.post-list-container {
+  overflow-x: auto;
+}
+.post-list {
+  padding-top: 10px;
+}
+.post-item {
+  background: #fff;
+  box-shadow: 0 0 20px -3px;
+  width: 100%;
+  box-shadow: 0 0 10px -3px;
+  margin-top: 15px;
+  padding: 10px 0;
+}
+.post-item:first-child {
+  margin-top: 0;
+}
+.post-item > [class*=post-item] {
+  padding-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+}
+.post-item .post-item-title {
+  border-left: 3px solid #2f54eb;
+  cursor: pointer;
+}
+.post-item .post-item-title * {
+  color: #000;
+}
+.post-item .post-item-description {
+  color: #bbb;
+}
+.post-item .post-item-content {
+  max-height: 60px;
+}
+.post-item .post-item-operator {
+  display: flex;
+}
+.post-item .post-item-operator .post-item-goAll {
+  margin-right: 20px;
+  color: #bbb;
+}
+.post-item .post-item-operator .post-item-goAll:hover {
+  cursor: pointer;
+  color: #000;
+}
+.post-detail {
+  padding: 15px;
+}
+.arrow::after,
+.arrow::before {
+  border: 10px solid transparent;
+  border-left: 10px solid #fff;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: -20px;
+  content: ' ';
+}
+.arrow::before {
+  border-left-color: #000;
+  right: -21px;
+}

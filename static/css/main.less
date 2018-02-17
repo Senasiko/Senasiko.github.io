@@ -1,0 +1,120 @@
+@mainColor: #2f54eb;
+@lineLightColor: #bbb;
+body{
+  background: #f7f7f7;
+  overflow: hidden;
+  display: flex;
+}
+.flex{
+  flex: 1;
+}
+.panel{
+  background: #fff;
+  box-shadow: 0 0 20px -3px;
+}
+.left-container{
+  flex: 0 0 300px;
+  height: 100%;
+  display: inline-block;
+}
+.user-msg{
+  @paddingHeight: 200px;
+  @imgHeight: 150px;
+  .left-container;
+  .panel;
+  &::before{
+    content: '';
+    margin-top: -@paddingHeight;
+    display: block;
+    height: @paddingHeight;
+    background-color: @mainColor;
+  }
+  margin-top: @paddingHeight;
+  position: relative;
+  text-align: center;
+  img{
+    position: relative;
+    height: @imgHeight;
+    width: @imgHeight;
+    border-radius: 100%;
+    margin-top: -@imgHeight/2;
+  }
+}
+.right-container{
+  display: inline-block;
+  flex: 1;
+  overflow-x: hidden;
+  align-self: start;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 980px;
+}
+.post-list-container{
+  overflow-x: auto;
+}
+.post-list{
+  padding-top: 10px;
+}
+.post-item{
+  .panel;
+  width: 100%;
+  box-shadow: 0 0 10px -3px;
+  margin-top: 15px;
+  padding: 10px 0;
+  &:first-child{
+    margin-top: 0;
+  }
+  &>[class*=post-item] {
+    padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+  .post-item-title{
+     * {
+       color: #000;
+     }
+    border-left: 3px solid @mainColor;
+    cursor: pointer;
+  }
+  .post-item-description{
+    color: @lineLightColor;
+  }
+  .post-item-content{
+    max-height: 60px;
+  }
+  .post-item-operator{
+    display: flex;
+    .post-item-goAll{
+      margin-right: 20px;
+      color: @lineLightColor;
+      &:hover{
+        cursor: pointer;
+        color: #000;
+      }
+    }
+  }
+}
+
+.post-detail{
+  padding: 15px;
+}
+
+.arrow{
+  &::after, &::before {
+    border: 10px solid transparent;
+    border-left: 10px solid #fff;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    content: ' '
+  }
+
+  &::before {
+    border-left-color: #000;
+    right: -21px;
+  }
+}
