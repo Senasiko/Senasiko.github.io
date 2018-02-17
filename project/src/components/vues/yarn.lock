@@ -544,9 +544,9 @@
   version "0.0.30"
   resolved "http://registry.npm.taobao.org/@types/strip-json-comments/download/@types/strip-json-comments-0.0.30.tgz#9aa30c04db212a9a0649d6ae6fd50accc40748a1"
 
-"@vue/babel-preset-app@^3.0.0-alpha.11":
-  version "3.0.0-alpha.11"
-  resolved "http://registry.npm.taobao.org/@vue/babel-preset-app/download/@vue/babel-preset-app-3.0.0-alpha.11.tgz#a77029c6138d189ddc11572720a231fedd430524"
+"@vue/babel-preset-app@^3.0.0-alpha.13":
+  version "3.0.0-alpha.13"
+  resolved "http://registry.npm.taobao.org/@vue/babel-preset-app/download/@vue/babel-preset-app-3.0.0-alpha.13.tgz#d5b2747f7eae1c5dfa31b01468bfcedd38a3a599"
   dependencies:
     "@babel/plugin-syntax-jsx" "^7.0.0-0"
     "@babel/plugin-transform-runtime" "^7.0.0-0"
@@ -562,17 +562,17 @@
   version "3.0.0-alpha.11"
   resolved "http://registry.npm.taobao.org/@vue/cli-overlay/download/@vue/cli-overlay-3.0.0-alpha.11.tgz#c740ff855b8ac2575acca1164ac9f6ea519e7480"
 
-"@vue/cli-plugin-babel@^3.0.0-alpha.11":
-  version "3.0.0-alpha.11"
-  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-babel/download/@vue/cli-plugin-babel-3.0.0-alpha.11.tgz#ac1a9a2ac27db4a6c6203fb9ff0887110b493db2"
+"@vue/cli-plugin-babel@^3.0.0-alpha.13":
+  version "3.0.0-alpha.13"
+  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-babel/download/@vue/cli-plugin-babel-3.0.0-alpha.13.tgz#fd9a4ee47e2070f74a3f56250c444d3450763a26"
   dependencies:
     "@babel/core" "^7.0.0-0"
-    "@vue/babel-preset-app" "^3.0.0-alpha.11"
+    "@vue/babel-preset-app" "^3.0.0-alpha.13"
     babel-loader "^8.0.0-0"
 
-"@vue/cli-plugin-typescript@^3.0.0-alpha.11":
-  version "3.0.0-alpha.11"
-  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-typescript/download/@vue/cli-plugin-typescript-3.0.0-alpha.11.tgz#94cb7ae1401375656e34963eff75c37a4791f5a5"
+"@vue/cli-plugin-typescript@^3.0.0-alpha.13":
+  version "3.0.0-alpha.13"
+  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-typescript/download/@vue/cli-plugin-typescript-3.0.0-alpha.13.tgz#5bd7115669751e5dbd1fe6496d6c0e2010b2b753"
   dependencies:
     "@types/node" "^9.3.0"
     fork-ts-checker-webpack-plugin "^0.3.0"
@@ -581,9 +581,9 @@
     tslint "^5.9.1"
     typescript "^2.7.1"
 
-"@vue/cli-plugin-unit-jest@^3.0.0-alpha.11":
-  version "3.0.0-alpha.11"
-  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-unit-jest/download/@vue/cli-plugin-unit-jest-3.0.0-alpha.11.tgz#7713c1800e0068dbef5d269b1b982e737aa4a3f7"
+"@vue/cli-plugin-unit-jest@^3.0.0-alpha.13":
+  version "3.0.0-alpha.13"
+  resolved "http://registry.npm.taobao.org/@vue/cli-plugin-unit-jest/download/@vue/cli-plugin-unit-jest-3.0.0-alpha.13.tgz#e81b11b42a66b436cb24aa77dfb7703e02bf6128"
   dependencies:
     execa "^0.9.0"
     jest "^22.1.4"
@@ -997,7 +997,7 @@ babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
-babel-core@^6.0.0, babel-core@^6.24.1, babel-core@^6.26.0:
+babel-core@6.26.0, babel-core@^6.0.0, babel-core@^6.24.1, babel-core@^6.26.0:
   version "6.26.0"
   resolved "http://registry.npm.taobao.org/babel-core/download/babel-core-6.26.0.tgz#af32f78b31a6fcef119c87b0fd8d9753f03a0bb8"
   dependencies:
@@ -1020,10 +1020,6 @@ babel-core@^6.0.0, babel-core@^6.24.1, babel-core@^6.26.0:
     private "^0.1.7"
     slash "^1.0.0"
     source-map "^0.5.6"
-
-babel-core@^7.0.0-0:
-  version "7.0.0-bridge.0"
-  resolved "http://registry.npm.taobao.org/babel-core/download/babel-core-7.0.0-bridge.0.tgz#95a492ddd90f9b4e9a4a1da14eb335b87b634ece"
 
 babel-generator@^6.18.0, babel-generator@^6.26.0:
   version "6.26.1"

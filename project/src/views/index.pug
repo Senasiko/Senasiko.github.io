@@ -1,17 +1,36 @@
 extends ./layout
+block left
+    #userMsg
 block content
-  #app
-  #content
-    != `${mds}`
+  .right-container
+    #app
+    #pagination
 append script
-  -var markdowns = [];
-  each md in mds
-    -markdowns.push(md)
+  -
+    var markdowns = [];
+    for (var i = 0; i < pageSize; i ++)
+      markdowns.push(mds[i]);
+      markdowns = JSON.stringify(markdowns);
   script(type="text/javascript").
     $(document).ready(function() {
-      var list = window.setPostList('#app', {
+      var list = window.vueCom.postList('#app', {
         mounted: function() {
-          list.getRef().init(!{mdsStr});
+          list.getRef().init(!{markdowns});
         }
       });
-    })
+
+      var userMsg = window.vueCom.userMsg('#userMsg', {
+          data: {
+            name: '#{user.name}',
+            img: '#{user.img}',
+            birthday: '#{user.birthday}'
+          }
+        })
+
+      var pagination = window.reactCom.pagination('#pagination', {
+        defaultCurrent: #{page},
+        total: #{total},
+        pageSize: #{pageSize}
+      })
+    });
+

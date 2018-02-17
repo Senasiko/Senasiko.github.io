@@ -1,5 +1,14 @@
 extends ./layout
+append style
+  style.
+    body{
+      overflow-y: auto;
+    }
+block title
+  title #{postName}
 block content
-  h1= postName
-  .markdown-body
-    != content
+  .right-container
+    .panel.post-detail
+      h1= config.title
+      .markdown-body
+        != content

@@ -15,8 +15,11 @@ module.exports = {
   postsDir: resolveSrc('__posts'),
   staticDir: resolveSrc(config.staticPath),
   viewDir: resolveSrc('views'),
+
   vueDistPath: resolveSrc('components/vues/dist'),
+  reactDistPath: resolveSrc('components/reacts/build'),
 
   postView: resolveHome('posts'),
+
   staticHome: resolveHome(config.staticPath),
 };

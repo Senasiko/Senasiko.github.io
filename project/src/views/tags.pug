@@ -1,0 +1,24 @@
+extends ./layout
+block content
+  script(type='text/javascript').
+    $(document).ready(function () {
+      var list = window.vueCom.postList('#app', {
+        mounted: function () {
+          list.getRef().init(!{markdowns});
+        }
+      });
+
+      var userMsg = window.vueCom.userMsg('#userMsg', {
+        data: {
+          name: '#{user.name}',
+          img: '#{user.img}',
+          birthday: '#{user.birthday}'
+        }
+      })
+
+      var pagination = window.reactCom.pagination('#pagination', {
+        defaultCurrent: #{page},
+        total: #{total},
+        pageSize: #{pageSize}
+      })
+    });

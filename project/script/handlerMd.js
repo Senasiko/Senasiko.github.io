@@ -20,10 +20,12 @@ const parseFileName = fileName => {
   let date = RegExp.$1;
   let postName = RegExp.$2;
   let fileDir = path.resolve(paths.postView, ...date.split('-'), postName);
+  let postUrl = path.resolve('/posts', ...date.split('-'), postName);
   return {
     postName,
     date,
-    fileDir
+    fileDir,
+    postUrl
   }
 };
 
@@ -43,6 +45,13 @@ const parseFile = fileName => {
     for (item of configItems) {
       item.split(/\s*(.+):\s*(.+)/);
       config[RegExp.$1] = RegExp.$2;
+      // if this config can parse, parse it
+      try {
+        config[RegExp.$1] = JSON.parse(RegExp.$2.replace(/(')|(")/g, '\"'));
+      }catch(e) {
+
+      }
+
     }
   }
   return {

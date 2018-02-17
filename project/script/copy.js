@@ -18,10 +18,20 @@ const copyFileToStatic = (src) =>  {
   });
 };
 
+const copyFileToVue = src => {
+  process.stdout.write(`copy ${params} to vue\n`);
+  fs.copySync(src, path.resolve(paths.vueDistPath, '../'), {
+    filter: (src, dest) => !src.match(/(index\.html)/)
+  })
+};
+
 switch (params) {
   case 'vue':
     copyFileToStatic(paths.vueDistPath);
     break;
+  case 'react':
+    copyFileToStatic(paths.reactDistPath);
+    copyFileToVue(paths.reactDistPath);
   default:
     break;
 }
