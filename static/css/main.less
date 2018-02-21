@@ -22,6 +22,8 @@ body{
   @imgHeight: 150px;
   .left-container;
   .panel;
+  transform: translateX(0);
+  transition: transform 1s;
   &::before{
     content: '';
     margin-top: -@paddingHeight;
@@ -100,6 +102,7 @@ body{
 .post-detail{
   padding: 15px;
 }
+
 
 .arrow{
   &::after, &::before {

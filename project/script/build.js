@@ -29,6 +29,9 @@ const renderIndex = compilePugFile('index.pug');
 // compile post
 const renderPost = compilePugFile('post.pug');
 
+// compile tags
+const renderTags = compilePugFile('tags.pug');
+
 let mds = handleMdFile();
 
 // render index
@@ -36,6 +39,7 @@ writeHtmlFile('.', renderIndex, { mds, page: 1, total: mds.length, pageSize: con
 
 // render posts
 let pagePosts = [];
+let tagPosts = {};
 let nowPage = 1;
 for (let md of mds) {
   const dir = md.fileDir;
@@ -51,7 +55,17 @@ for (let md of mds) {
     nowPage++;
     pagePosts = [];
   }
+
+  // push tags
+  if (md.config.tags && md.config.tags.length > 0) {
+    for (let tag of md.config.tags) {
+      tagPosts[tag]?tagPosts[tag].push(md):tagPosts[tag] = [md];
+    }
+  }
 }
+
+// render tagPosts
+writeHtmlFile('tags', renderTags, { tagPosts });
 
 /*
 less

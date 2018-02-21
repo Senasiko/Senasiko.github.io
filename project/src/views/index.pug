@@ -10,7 +10,7 @@ append script
     var markdowns = [];
     for (var i = 0; i < pageSize; i ++)
       markdowns.push(mds[i]);
-      markdowns = JSON.stringify(markdowns);
+    markdowns = JSON.stringify(markdowns);
   script(type="text/javascript").
     $(document).ready(function() {
       var list = window.vueCom.postList('#app', {

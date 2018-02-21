@@ -4,6 +4,7 @@ import './css/main.less'
 
 import PostList from './components/PostList/PostList';
 import UserMsg from './components/UserMsg/UserMsg.vue';
+import TagPosts from './components/TagPosts/TagPosts.vue';
 
 
 Vue.config.productionTip = false;
@@ -17,6 +18,12 @@ vueCom['postList'] = (document, options={}) => {
 
 vueCom['userMsg'] = (document, options={}) => {
   const vm: Vue = createVue(UserMsg, options);
+  vm.$mount(document);
+  return vm;
+};
+
+vueCom['tagPosts'] = (document, options={}) => {
+  const vm: Vue = createVue(TagPosts, options);
   vm.$mount(document);
   return vm;
 };

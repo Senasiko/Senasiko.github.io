@@ -1,24 +1,11 @@
 extends ./layout
 block content
+  #tagList
+  - var tagPostsInPug = JSON.stringify(tagPosts);
   script(type='text/javascript').
     $(document).ready(function () {
-      var list = window.vueCom.postList('#app', {
-        mounted: function () {
-          list.getRef().init(!{markdowns});
-        }
+      var tagPosts = !{tagPostsInPug};
+      var tagPostsDom = window.vueCom.tagPosts('#tagList', {
+        data: tagPosts
       });
-
-      var userMsg = window.vueCom.userMsg('#userMsg', {
-        data: {
-          name: '#{user.name}',
-          img: '#{user.img}',
-          birthday: '#{user.birthday}'
-        }
-      })
-
-      var pagination = window.reactCom.pagination('#pagination', {
-        defaultCurrent: #{page},
-        total: #{total},
-        pageSize: #{pageSize}
-      })
     });

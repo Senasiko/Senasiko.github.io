@@ -21,6 +21,8 @@ body {
   display: inline-block;
   background: #fff;
   box-shadow: 0 0 20px -3px;
+  transform: translateX(0);
+  transition: transform 1s;
   margin-top: 200px;
   position: relative;
   text-align: center;
