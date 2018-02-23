@@ -1,11 +1,20 @@
 <template>
-  <div>
+  <div class="tag-posts">
     <div>
       <input type="text" class="ant-input" placeholder="输入标签名" v-model="tagKeyword">
     </div>
     <div class="tags" ref="tagList">
-      {{ this.tagPosts }}
     </div>
+    <transition-group tag="div" name="post-list" :appear="true">
+      <div v-for="tagPost in tagPostsArray" class="panel tag-post" :key="tagPost.tagName">
+        <div>{{ tagPost.tagName }}</div>
+        <ul>
+          <li v-for="post in tagPost.posts" :key="post" @click="goPost(post.url)">
+            {{ post.title }}
+          </li>
+        </ul>
+      </div>
+    </transition-group>
   </div>
 </template>
 <script lang="ts">
@@ -24,14 +33,17 @@
       return Object.keys(this.tagPosts).filter(tag => !this.tagKeyword || tag.match(this.tagKeyword));
     }
     get tagPostsArray() {
-      return Object
+      return this.tagList.map((tagName, index) => ({ tagName, posts: this.tagPosts[tagName] }))
     }
     @Watch('tagList')
     onTagListChanged() {
       this.initTagList();
     }
     initTagList() {
-      reactCom.tagList(this.$refs.tagList, this.tagList);
+      reactCom.tagList(this.$refs.tagList, this.tagList.map(tag => `${tag}(${this.tagPosts[tag].length})`));
+    }
+    goPost(postUrl) {
+      router.goPost(postUrl);
     }
     mounted() {
       this.initTagList();

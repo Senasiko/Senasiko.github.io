@@ -10,7 +10,11 @@ window.router = {
     this._changeRouter('/')
   },
   goPage: function (page) {
-    this._changeRouter('/pages/' + page);
+    if (page === 1) {
+      this.goIndex();
+    }else {
+      this._changeRouter('/pages/' + page);
+    }
   },
   goPost: function (postUrl) {
     this._changeRouter(postUrl, true)

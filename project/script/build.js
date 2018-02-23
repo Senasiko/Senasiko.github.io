@@ -59,7 +59,11 @@ for (let md of mds) {
   // push tags
   if (md.config.tags && md.config.tags.length > 0) {
     for (let tag of md.config.tags) {
-      tagPosts[tag]?tagPosts[tag].push(md):tagPosts[tag] = [md];
+      let tagPost = {
+        title: md.config.title,
+        url: md.postUrl
+      };
+      tagPosts[tag]?tagPosts[tag].push(tagPost):tagPosts[tag] = [tagPost];
     }
   }
 }
