@@ -21,15 +21,13 @@ class MPagination extends Component<PropsType, {}> {
   render() {
     const { defaultCurrent, total, pageSize } = this.props;
     return (
-      <div>
-        <Pagination
-          defaultCurrent={defaultCurrent}
-          total={total}
-          pageSize={pageSize}
-          onChange={(page) => this.changePage(page)}
-        />
-      </div>
-
+      <Pagination
+        defaultCurrent={defaultCurrent}
+        total={total}
+        pageSize={pageSize}
+        size={'small'}
+        onChange={(page) => this.changePage(page)}
+      />
     );
   }
 }

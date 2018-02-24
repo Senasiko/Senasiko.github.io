@@ -1,6 +1,6 @@
 const fs = require('fs-extra');
 const path = require('path');
-const markdown = require('markdown').markdown;
+const markdown = require('markdown-it')();
 
 const paths = require('../config/paths');
 
@@ -35,7 +35,7 @@ const parseFile = fileName => {
   let mdContent = fs.readFileSync(getMdFileStaticPath(fileName)).toString();
   // match config and content
   let hasConfig = mdContent.match(/---\n((?:.|\n)*)\n---\n((?:.|\n)*)/);
-  let content = markdown.toHTML(hasConfig? RegExp.$2: mdContent) + '';
+  let content = markdown.render(hasConfig? RegExp.$2: mdContent) + '';
   let config = {};
   // if hasConfig, parse it
   if (hasConfig) {

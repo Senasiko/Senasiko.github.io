@@ -23,7 +23,18 @@ export default class PostList extends Vue {
         let post = posts[this.postListUi.length];
         this.postListUi.push(post);
         this.$nextTick(() => {
-          this.$refs[this.getPostRef(post, 'content')]['innerHTML'] = post.content;
+          // render post content
+          let contentRef = this.$refs[this.getPostRef(post, 'content')] as Element;
+          contentRef.innerHTML = post.content;
+          // if tag number over 3 hide
+          let newContent = document.createElement('div');
+          for (let i = 1; i <= 3; i++) {
+            newContent.appendChild(contentRef.querySelector(`*:nth-child(${i})`) as Element);
+          }
+          contentRef.innerHTML = '';
+          contentRef.appendChild(newContent);
+
+          // render tag list
           reactCom.tagList(this.$refs[this.getPostRef(post,'tagList')], post.config.tags || []);
         })
       }
@@ -52,7 +63,7 @@ export default class PostList extends Vue {
                   <div class='post-item-tag' ref={this.getPostRef(post, 'tagList')}></div>
                   <div class='flex'></div>
                   <a class='post-item-goAll' href={`${post.postUrl}`} target='__blank'>
-                    展开全文
+                    展开全文 >
                   </a>
                 </div>
               </div>

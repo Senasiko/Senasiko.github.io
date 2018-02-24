@@ -6,7 +6,13 @@
     <div class="tags" ref="tagList">
     </div>
     <transition-group tag="div" class="post-list" name="post-list" :appear="true">
-      <div v-for="tagPost in tagPostsArray" class="panel post-item" :key="tagPost.tagName" :id="tagPost.tagName">
+      <div
+        v-for="tagPost in tagPostsArray"
+        class="panel post-item"
+        :key="tagPost.tagName"
+        :id="tagPost.tagName"
+        :name="tagPost.tagName"
+      >
         <h1 class="post-item-title" style="cursor: auto">{{ tagPost.tagName }}</h1>
         <ul>
           <li v-for="post in tagPost.posts" :key="post" @click="goPost(post.url)" style="cursor: pointer">
@@ -51,6 +57,10 @@
     }
     mounted() {
       this.initTagList();
+      this.$nextTick(() => {
+        // 定位到某个 tag
+        location.href = location.href;
+      })
     }
   }
 </script>

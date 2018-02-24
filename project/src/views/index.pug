@@ -11,6 +11,7 @@ append script
     for (var i = 0; i < pageSize; i ++)
       markdowns.push(mds[i]);
     markdowns = JSON.stringify(markdowns);
+    var msgs = JSON.stringify(user.msgs);
   script(type="text/javascript").
     $(document).ready(function() {
       var list = window.vueCom.postList('#app', {
@@ -21,9 +22,8 @@ append script
 
       var userMsg = window.vueCom.userMsg('#userMsg', {
           data: {
-            name: '#{user.name}',
             img: '#{user.img}',
-            birthday: '#{user.birthday}'
+            msgs: !{msgs}
           }
         })
 

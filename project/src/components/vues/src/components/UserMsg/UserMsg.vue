@@ -3,8 +3,11 @@
     <div :class="['user-msg']" >
       <span :class="['hide-user', showUser?'arrow':'arrow']" @click="showUser = !showUser"></span>
       <img :src="user.img" alt="头像"/>
-      <div>{{ user.name }}</div>
-      <div>{{ user.birthday }}</div>
+      <div v-for="msg in user.msgs" :class="['msg-item', msg.link && 'link']">
+        <i v-if="msg.icon" :class="msg.icon"></i>
+        <span v-if="!msg.link && msg.value" >{{ msg.value }}</span>
+        <a v-if="msg.link && msg.value" :href="msg.link" target="_blank">{{ msg.value }}</a>
+      </div>
     </div>
   </transition>
 </template>
@@ -12,11 +15,15 @@
   import Vue from 'vue';
   import { Component, Prop } from 'vue-property-decorator';
 
-  interface User {
-    name: string;
-    img: string;
-    birthday: string;
+  interface MsgType {
+    icon: string;
+    value: string;
+    link?: string;
+  }
 
+  interface User {
+    img: string;
+    msgs: MsgType[];
   }
 
   @Component

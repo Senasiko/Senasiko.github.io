@@ -15,6 +15,9 @@ body {
   height: 100%;
   display: inline-block;
 }
+#pagination {
+  float: right;
+}
 .user-msg {
   flex: 0 0 300px;
   height: 100%;
@@ -41,14 +44,27 @@ body {
   border-radius: 100%;
   margin-top: -75px;
 }
+.user-msg .msg-item {
+  cursor: default;
+  font-size: 14px;
+  transition: font-size 0.3s;
+}
+.user-msg .msg-item a {
+  color: #000;
+}
+.user-msg .msg-item:hover {
+  font-size: 20px;
+}
 .right-container {
   display: inline-block;
   flex: 1;
-  overflow-x: hidden;
   align-self: start;
+  overflow-x: hidden;
+  overflow-y: auto;
   margin-left: auto;
   margin-right: auto;
   max-width: 980px;
+  max-height: 100%;
 }
 .post-list-container {
   overflow-x: auto;
@@ -91,9 +107,6 @@ body {
 }
 .post-item .post-item-description {
   color: #bbb;
-}
-.post-item .post-item-content {
-  max-height: 60px;
 }
 .post-item .post-item-operator {
   display: flex;

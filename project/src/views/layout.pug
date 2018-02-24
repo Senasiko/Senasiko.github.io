@@ -17,13 +17,13 @@ html
   body
     block left
       #userMsg
+      - var msgs = JSON.stringify(user.msgs);
       script(type="text/javascript").
         $(document).ready(function () {
           var userMsg = window.vueCom.userMsg('#userMsg', {
             data: {
-              name: '#{user.name}',
               img: '#{user.img}',
-              birthday: '#{user.birthday}'
+              msgs: !{msgs}
             }
           })
         });

@@ -189,7 +189,7 @@ export default connect(
   <img src="../images/react-update/selector-update.png" alt="selector-update">
 </div>
 
-*** P.S.I 一句话总结：`react` 中所有的检查均为浅检查，即仅检查指针是否改变（标准的 js 检查） ***
+***P.S.I 一句话总结：`react` 中所有的检查均为浅检查，即仅检查指针是否改变（标准的 js 检查）***
 ## Vue 相关总结
 vue 采用 `observer` (观察者模式) 的方式决定是否渲染组件。
 1. 遍历 `data` 和 `vuex state` 并为每个定义好的值添加 `observer` (即使是嵌套也添加)。
