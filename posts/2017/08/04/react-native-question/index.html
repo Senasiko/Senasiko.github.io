@@ -1,0 +1,43 @@
+<html><head><title>react-native-question</title><link href="/static/css/app.css" rel="stylesheet"/><link href="/static/css/react.main.css" rel="stylesheet"/><link href="/static/css/markdown.css" rel="stylesheet"/><link href="/static/css/main.css" rel="stylesheet"/><style>body{
+  overflow-y: auto;
+}</style><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/router.js"></script><script src="/static/js/react.main.js"></script><script src="/static/js/vue.manifest.js"></script><script src="/static/js/vue.vendor.js"></script><script src="/static/js/vue.app.js"></script></head><body><div id="userMsg"></div><script type="text/javascript">$(document).ready(function () {
+  var userMsg = window.vueCom.userMsg('#userMsg', {
+    data: {
+      name: 'sena',
+      img: '/static/img/user.png',
+      birthday: ''
+    }
+  })
+});</script><div class="right-container"><div class="panel post-detail"><h1>react-native开发过程中遇到的问题</h1><div class="markdown-body"><h2>使用 <code>react-native-video</code> ，安装app报错</h2>
+
+<h3>原因</h3>
+
+<p>版本问题：<code>&quot;react-native-video&quot;: &quot;^1.2.0&quot;,</code> 和 <code>&quot;react-native&quot;: &quot;^0.47.0&quot;,</code></p>
+
+<h3>解决办法</h3>
+
+<p>参照 <a href="https://github.com/react-native-community/react-native-video/pull/718/files">这里</a></p>
+
+<h2>使用reducer组件不更新</h2>
+
+<h3>原因</h3>
+
+<p>reducer 中 newState 不能指向 state，指向的话会认为没有变化。</p>
+
+<h3>解决办法</h3>
+
+<p><code>newState = {...state}</code>
+ps: 在 <code>switch case</code> 中 <code>default</code> 必须返回原 state，即
+<code>
+switch(action.type){
+...
+default: return state;break;
+}
+</code></p>
+
+<h2>react-native run-android 时报 cannot delete path ... 错误</h2>
+
+<h3>解决办法</h3>
+
+<p><code>cd android &amp;&amp; gradlew.bat clean</code></p></div></div></div><script>document.body.innerHeight = window.innerHeight;
+document.body.innerWidth = window.innerWidth;</script></body></html>

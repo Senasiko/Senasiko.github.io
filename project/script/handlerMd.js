@@ -86,6 +86,7 @@ const handleMdFile = () => {
     };
     resultMds.push(mdModal)
   }
+  resultMds.sort((a, b) => new Date(b.date) - new Date(a.date));
   return resultMds;
 };
 

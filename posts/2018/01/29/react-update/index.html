@@ -1,0 +1,203 @@
+<html><head><title>react-update</title><link href="/static/css/app.css" rel="stylesheet"/><link href="/static/css/react.main.css" rel="stylesheet"/><link href="/static/css/markdown.css" rel="stylesheet"/><link href="/static/css/main.css" rel="stylesheet"/><style>body{
+  overflow-y: auto;
+}</style><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/router.js"></script><script src="/static/js/react.main.js"></script><script src="/static/js/vue.manifest.js"></script><script src="/static/js/vue.vendor.js"></script><script src="/static/js/vue.app.js"></script></head><body><div id="userMsg"></div><script type="text/javascript">$(document).ready(function () {
+  var userMsg = window.vueCom.userMsg('#userMsg', {
+    data: {
+      name: 'sena',
+      img: '/static/img/user.png',
+      birthday: ''
+    }
+  })
+});</script><div class="right-container"><div class="panel post-detail"><h1>react redux reselect 更新机制验证</h1><div class="markdown-body"><p>react 本身更新数组和对象，类似于 array.push() 时，是否重新渲染组件呢？ <br/>react + redux 呢？  <br/>react + redux + reselect 呢？   </p>
+
+<h2>react</h2>
+
+<h3>更新 state</h3>
+
+<p>因 <code>react component</code> 更新状态的方式为 <code>this.setState()</code>, 所以每次都会重新渲染，不过不改变引用的情况下，新老状态值会保持一致
+<code></code>`javascript
+  class Parent extends Component {
+    constructor() {
+      super();
+      this.state = {
+        toDoListObj: {
+          toDoList: []
+        }
+      }
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+      console.log(this.state.toDoListObj === nextState.toDoListObj);
+    }
+    componentWillUpdate() {
+      console.log(&#39;parent component will update&#39;);
+    }
+    addToDoList() {
+      const { toDoListObj } = this.state;
+      toDoListObj.toDoList.push(&#39;1&#39;);
+      console.log(&#39;addToDoList&#39;, toDoListObj);
+      this.setState({
+        toDoListObj
+      })
+    }
+    render() {
+      console.log(&#39;parent component render&#39;);
+      return (
+        &lt;div &gt;
+          &lt;h3&gt; Parent &lt;/h3&gt;
+          &lt;button
+            onClick={this.addToDoList.bind(this)}
+          &gt;add&lt;/button&gt;
+          &lt;div&gt;
+            {
+              this.state.toDoListObj.toDoList.map(
+                item =&gt; (
+                  &lt;span&gt;item&lt;/span&gt;
+                )
+              )
+            }
+          &lt;/div&gt;
+        &lt;/div&gt;
+      );
+    }
+  }</p>
+
+<p>  export default Parent;</p>
+
+<p><code></code>`
+&lt;div  align=&quot;center&quot;&gt;  <br/>  &lt;img src=&quot;../images/react-update/react-update-state.png&quot; alt=&quot;react-update-state&quot;&gt;
+&lt;/div&gt;</p>
+
+<h3>prop 更新</h3>
+
+<p>当 <code>children component</code> 为 <code>PureComponent</code> 时，父组件状态修改但不更改引用，父组件重新渲染，子组件会执行 <code>componentWillReceiveProps</code> 但不会重新渲染，但是这个时候 <code>setState({state: newState})</code> 会重新渲染。
+<code></code>`javascript
+  import React, { PureComponent } from &#39;react&#39;;</p>
+
+<p>  class Children extends PureComponent {
+    constructor(props) {
+      super(props);
+      this.state = {
+        toDoList: this.props.toDoList
+      }
+    }
+    componentWillReceiveProps(nextProps) {
+      console.log(&#39;children component will receive props&#39;,
+      this.props.toDoList === nextProps.toDoList);
+      this.setState({
+        toDoList: nextProps.toDoList
+      })
+    }
+    render() {
+      console.log(&#39;children component render&#39;, this.props);
+      return (
+        &lt;div &gt;
+          &lt;h3&gt; Children &lt;/h3&gt;
+          &lt;div&gt;
+            {
+              this.state.toDoList.map(
+                (item, index) =&gt; (
+                  &lt;span key={index}&gt;{ item }&lt;/span&gt;
+                )
+              )
+            }
+          &lt;/div&gt;
+        &lt;/div&gt;
+      );
+    }
+  }</p>
+
+<p>  export default Children;
+<code></code>` <br/>&lt;div  align=&quot;center&quot;&gt;  <br/>  &lt;img src=&quot;../images/react-update/prop-update.png&quot; alt=&quot;prop-update&quot;&gt;
+&lt;/div&gt;</p>
+
+<h2>react + redux</h2>
+
+<p>redux 状态更新之后，会执行所有的 <code>mapStateToProps</code>，然后浅比较更新前后的 <code>props</code> 是否一致， 如果一致，那么就不更新组件( <code>componentWillReceiveProps</code> 也不会执行 )。
+<code></code>`javascript
+import React, { Component } from &#39;react&#39;;
+import { connect } from &#39;react-redux&#39;;</p>
+
+<p>class Children extends Component {
+constructor(props) {
+  super(props);
+  this.state = {
+    toDoList: this.props.toDoList
+  }
+}
+componentWillReceiveProps(nextProps) {
+  console.log(&#39;children component will receive props&#39;,
+  this.props.toDoList === nextProps.toDoList);
+  this.setState({
+    toDoList: nextProps.toDoList
+  })
+}
+render() {
+  console.log(&#39;children component render&#39;, this.props);
+  return (
+    &lt;div &gt;
+      &lt;h3&gt; Children &lt;/h3&gt;
+      &lt;div&gt;
+        {
+          this.state.toDoList.map(
+            (item, index) =&gt; (
+              &lt;span key={index}&gt;{ item }&lt;/span&gt;
+            )
+          )
+        }
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+}</p>
+
+<p>export default connect(
+state =&gt; {
+  console.log(&#39;state from redux&#39;, state);
+  return {
+    toDoList: state.toDoList
+  }
+}
+)(Children);</p>
+
+<p><code></code>` <br/>&lt;div  align=&quot;center&quot;&gt;  <br/>  &lt;img src=&quot;../images/react-update/redux-update.png&quot; alt=&quot;redux-update&quot;&gt;
+&lt;/div&gt;</p>
+
+<h3>react + redux + reselect</h3>
+
+<p>当 <code>redux state</code> 改变，会执行所有的 <code>mapStateToProps</code>，执行 <code>createSelector</code> 中的 <code>state array</code>，这里面的值没有改变时，直接返回上次的值，如果更新，执行 <code>selector</code>， 然后 <code>redux</code> 会再进行一次检查。
+<code>javascript
+export const getToDoList = createSelector(
+  [state =&gt; {
+    console.log(&#39;in state&#39;);
+    return state.toDoList;
+  }],
+  toDoList =&gt; {
+    console.log(&#39;in selector&#39;);
+    return toDoList;
+  }
+)
+// in Children component
+export default connect(
+  state =&gt; {
+    console.log(&#39;state from redux&#39;, state);
+    let toDoList = getToDoList(state);
+    console.log(&#39;from selector&#39;, toDoList);
+    return {
+      toDoList
+    }
+  }
+)(Children);
+</code>
+&lt;div  align=&quot;center&quot;&gt;  <br/>  &lt;img src=&quot;../images/react-update/selector-update.png&quot; alt=&quot;selector-update&quot;&gt;
+&lt;/div&gt;</p>
+
+<p><strong>* P.S.I 一句话总结：<code>react</code> 中所有的检查均为浅检查，即仅检查指针是否改变（标准的 js 检查） </strong>*</p>
+
+<h2>Vue 相关总结</h2>
+
+<p>vue 采用 <code>observer</code> (观察者模式) 的方式决定是否渲染组件。
+1. 遍历 <code>data</code> 和 <code>vuex state</code> 并为每个定义好的值添加 <code>observer</code> (即使是嵌套也添加)。
+2. 当有 <code>observer</code> 的值改变时，重新渲染组件。
+3. 执行到 <code>computed</code> 和 <code>getters</code> 的时候，用到哪个变量(即执行某个变量的 <code>get()</code> )，就往他的 <code>observer</code> 中注册事件，当此变量变化时，再重新执行 <code>computed</code> 和 <code>getters</code>(此过程为根据现象推测)。
+4. vue 组件默认为类似 <code>PureComponent</code>。</p></div></div></div><script>document.body.innerHeight = window.innerHeight;
+document.body.innerWidth = window.innerWidth;</script></body></html>

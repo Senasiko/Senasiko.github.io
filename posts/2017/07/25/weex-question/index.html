@@ -1,0 +1,30 @@
+<html><head><title>weex-question</title><link href="/static/css/app.css" rel="stylesheet"/><link href="/static/css/react.main.css" rel="stylesheet"/><link href="/static/css/markdown.css" rel="stylesheet"/><link href="/static/css/main.css" rel="stylesheet"/><style>body{
+  overflow-y: auto;
+}</style><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/router.js"></script><script src="/static/js/react.main.js"></script><script src="/static/js/vue.manifest.js"></script><script src="/static/js/vue.vendor.js"></script><script src="/static/js/vue.app.js"></script></head><body><div id="userMsg"></div><script type="text/javascript">$(document).ready(function () {
+  var userMsg = window.vueCom.userMsg('#userMsg', {
+    data: {
+      name: 'sena',
+      img: '/static/img/user.png',
+      birthday: ''
+    }
+  })
+});</script><div class="right-container"><div class="panel post-detail"><h1>weex使用过程中遇到的问题</h1><div class="markdown-body"><h2>1. 开发环境</h2>
+
+<p>目前官方提供的工具为 <a href="https://github.com/weexteam/weex-toolkit">weex-toolkit</a> 按照文档即可完成环境搭建。   <br/>另一个可以用的开发环境 <a href="https://github.com/weexteam/weex-hackernews">weex-hackernews</a></p>
+
+<h2>2. 开发过程</h2>
+
+<ul><li>官方提供的标签过少。</li><li>不支持 z-index。</li><li><code> &lt;div&gt; </code> 不支持 overflow-y。</li><li><code>&lt;slide&gt;</code> 轮播图标签中 <code>&lt;indicator&gt;</code> 指示器点的样式没有成功修改过。</li><li><code>&lt;transition&gt;</code> 标签在多个试图切换过程中会出现混乱的情况(<strong>是 weex 的问题还是 vue 的问题待调查</strong>)。</li><li>调用 android 和 ios 系统功能的 api 几乎没有。大部分都要通过自己封装原生的代码来实现功能。</li></ul>
+
+<h2>3. 多终端调试及编译</h2>
+
+<ul><li>web 可以实现正常的调试，并且有 <a href="https://github.com/vuejs/vue-devtools">vue-devtools</a> 工具来方便调试。</li><li>native 端只能用 <code>weex-toolkit</code> 进行单页调试，无法调试整个应用。</li><li><a href="https://weex.incubator.apache.org/cn/references/advanced/integrate-devtool-to-android.html">集成 Devtools 到 Android</a> 也没成功。</li><li>各终端的兼容性不好，在 web 端正常显示的程序编译后往往会出现兼容性问题，且因为无法调试整个系统导致修改起来极其麻烦。</li><li><code>weex-toolkit</code> 可以直接通过命令行编译生成 apk 等 native 文件。</li></ul>
+
+<h2>4. 社区</h2>
+
+<p>官方文档真的太少、太简单了。<br/>github相关源码的issue也很少。</p>
+
+<hr/>
+
+<h4>ps: <a href="https://github.com/alibaba/weex/issues/1494">关于weex的一些issue汇总</a></h4></div></div></div><script>document.body.innerHeight = window.innerHeight;
+document.body.innerWidth = window.innerWidth;</script></body></html>

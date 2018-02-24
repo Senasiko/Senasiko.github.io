@@ -1,15 +1,15 @@
 <template>
   <div class="tag-posts">
-    <div>
+    <div class="input-div">
       <input type="text" class="ant-input" placeholder="输入标签名" v-model="tagKeyword">
     </div>
     <div class="tags" ref="tagList">
     </div>
-    <transition-group tag="div" name="post-list" :appear="true">
-      <div v-for="tagPost in tagPostsArray" class="panel tag-post" :key="tagPost.tagName">
-        <div>{{ tagPost.tagName }}</div>
+    <transition-group tag="div" class="post-list" name="post-list" :appear="true">
+      <div v-for="tagPost in tagPostsArray" class="panel post-item" :key="tagPost.tagName" :id="tagPost.tagName">
+        <h1 class="post-item-title" style="cursor: auto">{{ tagPost.tagName }}</h1>
         <ul>
-          <li v-for="post in tagPost.posts" :key="post" @click="goPost(post.url)">
+          <li v-for="post in tagPost.posts" :key="post" @click="goPost(post.url)" style="cursor: pointer">
             {{ post.title }}
           </li>
         </ul>
@@ -30,7 +30,11 @@
     tagKeyword: string = '';
     tagPosts: object = this.data;
     get tagList() {
-      return Object.keys(this.tagPosts).filter(tag => !this.tagKeyword || tag.match(this.tagKeyword));
+      return Object.keys(this.tagPosts).filter(
+        tag => !this.tagKeyword || tag.match(this.tagKeyword)
+      ).sort(
+        (a, b) => this.tagPosts[b].length - this.tagPosts[a].length
+      );
     }
     get tagPostsArray() {
       return this.tagList.map((tagName, index) => ({ tagName, posts: this.tagPosts[tagName] }))

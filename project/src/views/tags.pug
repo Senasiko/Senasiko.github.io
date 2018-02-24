@@ -1,6 +1,7 @@
 extends ./layout
 block content
-  #tagList
+  .right-container
+    #tagList
   - var tagPostsInPug = JSON.stringify(tagPosts);
   script(type='text/javascript').
     $(document).ready(function () {

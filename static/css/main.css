@@ -62,7 +62,7 @@ body {
   width: 100%;
   box-shadow: 0 0 10px -3px;
   margin-top: 15px;
-  padding: 10px 0;
+  padding: 10px 20px 10px 0;
 }
 .post-item:first-child {
   margin-top: 0;
@@ -76,10 +76,18 @@ body {
 }
 .post-item .post-item-title {
   border-left: 3px solid #2f54eb;
+  position: relative;
+}
+.post-item .post-item-title a {
+  color: #000;
   cursor: pointer;
 }
-.post-item .post-item-title * {
-  color: #000;
+.post-item .post-item-date {
+  color: #bbb;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  bottom: 6px;
 }
 .post-item .post-item-description {
   color: #bbb;
@@ -91,7 +99,6 @@ body {
   display: flex;
 }
 .post-item .post-item-operator .post-item-goAll {
-  margin-right: 20px;
   color: #bbb;
 }
 .post-item .post-item-operator .post-item-goAll:hover {
@@ -100,6 +107,15 @@ body {
 }
 .post-detail {
   padding: 15px;
+}
+.tag-posts > div {
+  margin: 10px 0;
+}
+.tag-posts .input-div {
+  text-align: center;
+}
+.tag-posts .input-div input {
+  max-width: 500px;
 }
 .arrow::after,
 .arrow::before {

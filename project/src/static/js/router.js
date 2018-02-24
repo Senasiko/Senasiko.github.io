@@ -18,5 +18,9 @@ window.router = {
   },
   goPost: function (postUrl) {
     this._changeRouter(postUrl, true)
+  },
+  goTag: function (tagName) {
+    tagName = tagName.replace(/\(.*\)$/, '');
+    this._changeRouter('/tags/#' + tagName, true);
   }
 };

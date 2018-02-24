@@ -1,0 +1,44 @@
+<html><head><title>react-native</title><link href="/static/css/app.css" rel="stylesheet"/><link href="/static/css/react.main.css" rel="stylesheet"/><link href="/static/css/markdown.css" rel="stylesheet"/><link href="/static/css/main.css" rel="stylesheet"/><style>body{
+  overflow-y: auto;
+}</style><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/router.js"></script><script src="/static/js/react.main.js"></script><script src="/static/js/vue.manifest.js"></script><script src="/static/js/vue.vendor.js"></script><script src="/static/js/vue.app.js"></script></head><body><div id="userMsg"></div><script type="text/javascript">$(document).ready(function () {
+  var userMsg = window.vueCom.userMsg('#userMsg', {
+    data: {
+      name: 'sena',
+      img: '/static/img/user.png',
+      birthday: ''
+    }
+  })
+});</script><div class="right-container"><div class="panel post-detail"><h1>react-native起步易错点记录</h1><div class="markdown-body"><h4>按照 <a href="http://reactnative.cn/docs/0.46/getting-started.html">react-native中文文档</a> 起步</h4>
+
+<h2>样式</h2>
+
+<ul><li>建议使用 <code>StyleSheet.create</code> 来集中定义组件的样式
+<code>js
+const styles = StyleSheet.create({
+bigblue: {
+color: &#39;blue&#39;,
+fontWeight: &#39;bold&#39;,
+fontSize: 30,
+},
+red: {
+color: &#39;red&#39;,
+},
+});
+</code></li></ul>
+
+<h2>标签</h2>
+
+<ul><li><code>&lt;FlastList&gt;</code> 中 <code>renderItem</code> 属性函数内部 <code>this</code> 指向 <code>window</code> ，所以要使用 this 请在 return 里使用       </li><li><code>&lt;FlastList&gt;</code> 的父元素<strong>必须设置 <code>{flex: 1}</code></strong> <strong>必须设置 <code>{flex: 1}</code></strong> <strong>必须设置 <code>{flex: 1}</code></strong> </li></ul>
+
+<h2>资源</h2>
+
+<ul><li>require中的图片名字必须是一个静态字符串（不能使用变量！因为require是在编译时期执行，而非运行时期执行！）。</li><li>如果你需要动态缩放图片（例如，通过flex），你可能必须手动在style属性设置{ width: undefined, height: undefined }。</li><li>视频必须指定尺寸而不能使用flex样式。</li><li>边框圆角样式目前在iOS的图片组件上还不支持。</li></ul>
+
+<h2>杂记</h2>
+
+<ul><li>在iOS上使用http链接的图片地址可能不会显示，参见<a href="https://segmentfault.com/a/1190000002933776">这篇说明修改</a>。</li><li>可以使用应用内的开发者菜单中的“FPS Monitor”工具来监控应用的帧率。</li><li>android studio sdk配置必须6.0</li><li>react 中 条件渲染可以这样写 <code>{isTrue &amp;&amp; &lt;div&gt;&lt;/div&gt;}</code></li><li>react 给子元素传组件 <code>&lt;Child div={&lt;div /&gt;}/&gt;</code></li></ul>
+
+<h2>常用网站</h2>
+
+<ul><li><a href="http://www.jianshu.com/p/2f575cc35780">react-navigation使用技巧</a></li></ul></div></div></div><script>document.body.innerHeight = window.innerHeight;
+document.body.innerWidth = window.innerWidth;</script></body></html>

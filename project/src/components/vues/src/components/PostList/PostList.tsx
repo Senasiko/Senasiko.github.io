@@ -8,6 +8,7 @@ interface Post {
     tags: string[];
     description: string;
   };
+  date: string;
   postUrl: string;
 }
 
@@ -40,7 +41,7 @@ export default class PostList extends Vue {
               <div class='post-item' key={post.config.title}>
                 <h1 class='post-item-title'>
                   <a href={`${post.postUrl}`} target='__blank'>{ post.config.title }</a>
-
+                  <span class='post-item-date'>{ post.date }</span>
                 </h1>
                 <h4 class='post-item-description'>
                   { post.config.description }
