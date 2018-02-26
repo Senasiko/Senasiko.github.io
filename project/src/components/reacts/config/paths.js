@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const mainConfig = require('../../../../config/config');
 const fs = require('fs');
 const url = require('url');
 
@@ -52,6 +53,6 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   appTsConfig: resolveApp('tsconfig.json'),
   appTsLint: resolveApp('tslint.json'),
-  publicUrl: getPublicUrl(resolveApp('package.json')),
+  publicUrl: path.join(mainConfig.rootPath, mainConfig.staticPath),
   servedPath: getServedPath(resolveApp('package.json')),
 };

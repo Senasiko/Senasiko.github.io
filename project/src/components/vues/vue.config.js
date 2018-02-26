@@ -16,6 +16,7 @@ module.exports = {
         output: {
           filename: `${mainConfig.staticPath}/js/vue.[name].js`,
           chunkFilename: `${mainConfig.staticPath}/js/vue.[name].js`,
+          publicPath: path.join(mainConfig.rootPath, mainConfig.staticPath)
         },
         module: {
           rules: [

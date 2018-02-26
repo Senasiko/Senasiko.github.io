@@ -1,5 +1,6 @@
 window.router = {
   _changeRouter: function(href, newTag) {
+    href = window.rootPath + href ;
     if (newTag) {
       window.open(href);
     }else {

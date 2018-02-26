@@ -2,8 +2,8 @@ import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
 interface MsgType {
-  icon: string;
-  value: string;
+  icon?: string;
+  value?: string;
   link?: string;
 }
 
@@ -24,7 +24,14 @@ export default class UserMsg extends Vue {
     super(props);
     this.user = this.data;
   }
-
+  getMsg(msg) {
+    return (
+      <div class={['msg-item', !msg.value && 'inline-item']}>
+        { msg.icon && <i class={msg.icon}/> }
+        <span>{ msg.value }</span>
+      </div>
+    )
+  }
   render() {
     const user = this.user;
     return (
@@ -35,12 +42,11 @@ export default class UserMsg extends Vue {
           }
           <img src={user.img} alt="头像"/>
           {
-            user.msgs.map(msg =>
-              <div class={'msg-item'}>
-                <i v-if="msg.icon" class={msg.icon}></i>
-                <span v-if="!msg.link && msg.value" >{ msg.value }</span>
-                <a v-if="msg.link && msg.value" href={msg.link} target="_blank">{ msg.value }</a>
-              </div>
+            user.msgs.map(msg => msg.link?
+              <a href={msg.link} target="_blank">
+                { this.getMsg(msg) }
+              </a>
+              : this.getMsg(msg)
             )
           }
         </div>

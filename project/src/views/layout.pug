@@ -3,17 +3,19 @@ html
     block title
       title #{title}
     block style
-      link(href=`/${staticPath}/css/app.css`, rel='stylesheet')
-      link(href=`/${staticPath}/css/react.main.css`, rel='stylesheet')
-      link(href=`/${staticPath}/css/markdown.css`, rel='stylesheet')
-      link(href=`/${staticPath}/css/main.css`, rel='stylesheet')
+      link(href=`${rootPath}/${staticPath}/css/app.css`, rel='stylesheet')
+      link(href=`${rootPath}/${staticPath}/css/react.main.css`, rel='stylesheet')
+      link(href=`${rootPath}/${staticPath}/css/markdown.css`, rel='stylesheet')
+      link(href=`${rootPath}/${staticPath}/css/main.css`, rel='stylesheet')
     block script
-      script(src=`/${staticPath}/js/jquery-3.3.1.min.js`)
-      script(src=`/${staticPath}/js/router.js`)
-      script(src=`/${staticPath}/js/react.main.js`)
-      script(src=`/${staticPath}/js/vue.manifest.js`)
-      script(src=`/${staticPath}/js/vue.vendor.js`)
-      script(src=`/${staticPath}/js/vue.app.js`)
+      script.
+        window.rootPath = '#{rootPath}';
+      script(src=`${rootPath}/${staticPath}/js/jquery-3.3.1.min.js`)
+      script(src=`${rootPath}/${staticPath}/js/router.js`)
+      script(src=`${rootPath}/${staticPath}/js/react.main.js`)
+      script(src=`${rootPath}/${staticPath}/js/vue.manifest.js`)
+      script(src=`${rootPath}/${staticPath}/js/vue.vendor.js`)
+      script(src=`${rootPath}/${staticPath}/js/vue.app.js`)
   body
     block left
       #userMsg
@@ -29,7 +31,7 @@ html
         });
     block content
     block foot
-    script.
-      document.body.innerHeight = window.innerHeight;
-      document.body.innerWidth = window.innerWidth;
+      script.
+        document.body.innerHeight = window.innerHeight;
+        document.body.innerWidth = window.innerWidth;
 

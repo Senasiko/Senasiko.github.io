@@ -13,7 +13,7 @@ module.exports = {
   srcPath,
   homePage,
   postsDir: resolveSrc('__posts'),
-  staticDir: resolveSrc(config.staticPath),
+  staticDir: resolveSrc('static'),
   viewDir: resolveSrc('views'),
 
   vueDistPath: resolveSrc('components/vues/dist'),
@@ -21,5 +21,5 @@ module.exports = {
 
   postView: resolveHome('posts'),
 
-  staticHome: resolveHome(config.staticPath),
+  staticHome: resolveHome('static'),
 };

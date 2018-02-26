@@ -3,7 +3,7 @@ import createVue from './creatVue';
 import './css/main.less'
 
 import PostList from './components/PostList/PostList';
-import UserMsg from './components/UserMsg/UserMsg.vue';
+import UserMsg from './components/UserMsg/UserMsg';
 import TagPosts from './components/TagPosts/TagPosts.vue';
 
 
