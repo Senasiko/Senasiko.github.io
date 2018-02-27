@@ -17,11 +17,15 @@ html
       script(src=`${rootPath}/${staticPath}/js/vue.vendor.js`)
       script(src=`${rootPath}/${staticPath}/js/vue.app.js`)
   body
+    block loading
+      #loading
+        i(class='anticon anticon-spin anticon-loading')
     block left
       #userMsg
       - var msgs = JSON.stringify(user.msgs);
       script(type="text/javascript").
         $(document).ready(function () {
+          $('#loading').hide();
           var userMsg = window.vueCom.userMsg('#userMsg', {
             data: {
               img: '#{user.img}',

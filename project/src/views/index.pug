@@ -1,6 +1,4 @@
 extends ./layout
-block left
-    #userMsg
 block content
   .right-container
     #app
@@ -19,14 +17,6 @@ append script
           list.getRef().init(!{markdowns});
         }
       });
-
-      var userMsg = window.vueCom.userMsg('#userMsg', {
-          data: {
-            img: '#{user.img}',
-            msgs: !{msgs}
-          }
-        })
-
       var pagination = window.reactCom.pagination('#pagination', {
         defaultCurrent: #{page},
         total: #{total},

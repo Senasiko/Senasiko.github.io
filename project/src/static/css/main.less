@@ -1,5 +1,6 @@
-@mainColor: #2f54eb;
+@mainColor: #35cfeb;
 @lineLightColor: #bbb;
+@mainModalBackground: rgba(255, 255, 255, 0.5);
 body{
   background: #f7f7f7;
   overflow: hidden;
@@ -7,6 +8,25 @@ body{
 }
 .flex{
   flex: 1;
+}
+#loading{
+  position: fixed;
+  font-size: 50px;
+  background: @mainModalBackground;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  i{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(50%);
+    color: @mainColor;
+  }
+
+
 }
 .panel{
   background: #fff;
@@ -48,8 +68,9 @@ body{
     cursor: default;
     font-size: 14px;
     transition: font-size .3s;
-    a{
-      color: #000;
+    color: #000;
+    &.inline-item{
+      display: inline-block;
     }
     &:hover{
       font-size: 20px;

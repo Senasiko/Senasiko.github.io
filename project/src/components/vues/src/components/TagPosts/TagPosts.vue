@@ -5,7 +5,7 @@
     </div>
     <div class="tags" ref="tagList">
     </div>
-    <transition-group tag="div" class="post-list" name="post-list" :appear="true">
+    <transition-group tag="div" class="post-list tag-post-list" name="post-list" :appear="true">
       <div
         v-for="tagPost in tagPostsArray"
         class="panel post-item"

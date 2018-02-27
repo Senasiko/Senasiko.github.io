@@ -23,6 +23,7 @@ const writeHtmlFile = (relativePath, pugRenderFunc, locals={}) => {
   fs.writeFileSync(path.join(dir, 'index.html'), pugRenderFunc({ ...config, ...locals}));
 };
 
+
 // compile index
 const renderIndex = compilePugFile('index.pug');
 
@@ -38,16 +39,18 @@ let mds = handleMdFile();
 writeHtmlFile('.', renderIndex, { mds, page: 1, total: mds.length, pageSize: config.pageSize });
 
 // render posts
+fs.removeFileSync(paths.postView);
 let pagePosts = [];
 let tagPosts = {};
 let nowPage = 1;
-for (let md of mds) {
+for (let i = 0; i < mds.length; i++) {
+  let md = mds[i];
   const dir = md.fileDir;
   delete md.fileDir;
   writeHtmlFile(dir, renderPost, md);
   // render page
   pagePosts.push(md);
-  if (pagePosts.length >= config.pageSize ) {
+  if (pagePosts.length === config.pageSize || i === mds.length -1) {
     // if is first page, filter
     if (nowPage > 1) {
       writeHtmlFile(`pages/${nowPage}`, renderIndex, { mds: pagePosts, page: nowPage, total: mds.length, pageSize: config.pageSize });
