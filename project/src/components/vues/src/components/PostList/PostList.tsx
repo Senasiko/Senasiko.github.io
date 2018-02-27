@@ -10,6 +10,7 @@ interface Post {
   };
   date: string;
   postUrl: string;
+  postAbsUrl: string;
 }
 
 @Component
@@ -51,7 +52,7 @@ export default class PostList extends Vue {
             this.postListUi.map((post, index) =>
               <div class='post-item' key={post.config.title}>
                 <h1 class='post-item-title'>
-                  <a href={`${post.postUrl}`} target='__blank'>{ post.config.title }</a>
+                  <a href={`${post.postAbsUrl}`} target='__blank'>{ post.config.title }</a>
                   <span class='post-item-date'>{ post.date }</span>
                 </h1>
                 <h4 class='post-item-description'>
@@ -62,7 +63,7 @@ export default class PostList extends Vue {
                 <div class='post-item-operator'>
                   <div class='post-item-tag' ref={this.getPostRef(post, 'tagList')}></div>
                   <div class='flex'></div>
-                  <a class='post-item-goAll' href={`${post.postUrl}`} target='__blank'>
+                  <a class='post-item-goAll' href={`${post.postAbsUrl}`} target='__blank'>
                     展开全文 >
                   </a>
                 </div>

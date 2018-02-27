@@ -5,6 +5,7 @@ interface MsgType {
   icon?: string;
   value?: string;
   link?: string;
+  newTag?: boolean;
 }
 
 interface User {
@@ -43,7 +44,7 @@ export default class UserMsg extends Vue {
           <img src={user.img} alt="头像"/>
           {
             user.msgs.map(msg => msg.link?
-              <a href={msg.link} target="_blank" class={'link'}>
+              <a href={msg.link} target={msg.newTag?"_blank":"_self"} class={'link'}>
                 { this.getMsg(msg) }
               </a>
               : this.getMsg(msg)

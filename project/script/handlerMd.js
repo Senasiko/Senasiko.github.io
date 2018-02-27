@@ -2,6 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const markdown = require('markdown-it')();
 
+const config = require('../config/config');
 const paths = require('../config/paths');
 
 
@@ -25,7 +26,8 @@ const parseFileName = fileName => {
     postName,
     date,
     fileDir,
-    postUrl
+    postUrl,
+    postAbsUrl: `${config.rootPath}${postUrl}`,
   }
 };
 

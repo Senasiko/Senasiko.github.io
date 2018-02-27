@@ -8,7 +8,8 @@ module.exports = {
     msgs: [
       {
         icon: '',
-        value: 'sena'
+        value: 'sena',
+        link: '/Senasiko.github.io'
       },
       {
         icon: 'anticon anticon-calendar',
@@ -17,11 +18,17 @@ module.exports = {
       {
         value: 'github',
         icon: 'anticon anticon-github',
-        link: 'https://github.com/Senasiko'
+        link: 'https://github.com/Senasiko',
+        newTag: true
+      },
+      {
+        value: 'senasiko@gmail.com',
+        icon: 'anticon anticon-mail',
       },
       {
         icon: 'anticon anticon-weibo',
-        link: 'https://www.weibo.com'
+        link: 'https://www.weibo.com',
+        newTag: true
       }
     ]
 
