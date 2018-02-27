@@ -1,22 +1,21 @@
-<html><head><title>标题</title><link href="/static/css/app.css" rel="stylesheet"/><link href="/static/css/react.main.css" rel="stylesheet"/><link href="/static/css/markdown.css" rel="stylesheet"/><link href="/static/css/main.css" rel="stylesheet"/><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/router.js"></script><script src="/static/js/react.main.js"></script><script src="/static/js/vue.manifest.js"></script><script src="/static/js/vue.vendor.js"></script><script src="/static/js/vue.app.js"></script><script type="text/javascript">$(document).ready(function() {
+<html><head><title>标题</title><link href="/Senasiko.github.io/static/css/app.css" rel="stylesheet"/><link href="/Senasiko.github.io/static/css/react.main.css" rel="stylesheet"/><link href="/Senasiko.github.io/static/css/markdown.css" rel="stylesheet"/><link href="/Senasiko.github.io/static/css/main.css" rel="stylesheet"/><script>window.rootPath = '/Senasiko.github.io';</script><script src="/Senasiko.github.io/static/js/jquery-3.3.1.min.js"></script><script src="/Senasiko.github.io/static/js/router.js"></script><script src="/Senasiko.github.io/static/js/react.main.js"></script><script src="/Senasiko.github.io/static/js/vue.manifest.js"></script><script src="/Senasiko.github.io/static/js/vue.vendor.js"></script><script src="/Senasiko.github.io/static/js/vue.app.js"></script><script type="text/javascript">$(document).ready(function() {
   var list = window.vueCom.postList('#app', {
     mounted: function() {
-      list.getRef().init([{"config":{"layout":"post","title":"react-native起步易错点记录","description":"react-native起步易错点记录","share":true,"tags":["react-native"],"date":"2017-07-26"},"content":"<h4>按照 <a href=\"http://reactnative.cn/docs/0.46/getting-started.html\">react-native中文文档</a> 起步</h4>\n\n<h2>样式</h2>\n\n<ul><li>建议使用 <code>StyleSheet.create</code> 来集中定义组件的样式\n<code>js\nconst styles = StyleSheet.create({\nbigblue: {\ncolor: &#39;blue&#39;,\nfontWeight: &#39;bold&#39;,\nfontSize: 30,\n},\nred: {\ncolor: &#39;red&#39;,\n},\n});\n</code></li></ul>\n\n<h2>标签</h2>\n\n<ul><li><code>&lt;FlastList&gt;</code> 中 <code>renderItem</code> 属性函数内部 <code>this</code> 指向 <code>window</code> ，所以要使用 this 请在 return 里使用       </li><li><code>&lt;FlastList&gt;</code> 的父元素<strong>必须设置 <code>{flex: 1}</code></strong> <strong>必须设置 <code>{flex: 1}</code></strong> <strong>必须设置 <code>{flex: 1}</code></strong> </li></ul>\n\n<h2>资源</h2>\n\n<ul><li>require中的图片名字必须是一个静态字符串（不能使用变量！因为require是在编译时期执行，而非运行时期执行！）。</li><li>如果你需要动态缩放图片（例如，通过flex），你可能必须手动在style属性设置{ width: undefined, height: undefined }。</li><li>视频必须指定尺寸而不能使用flex样式。</li><li>边框圆角样式目前在iOS的图片组件上还不支持。</li></ul>\n\n<h2>杂记</h2>\n\n<ul><li>在iOS上使用http链接的图片地址可能不会显示，参见<a href=\"https://segmentfault.com/a/1190000002933776\">这篇说明修改</a>。</li><li>可以使用应用内的开发者菜单中的“FPS Monitor”工具来监控应用的帧率。</li><li>android studio sdk配置必须6.0</li><li>react 中 条件渲染可以这样写 <code>{isTrue &amp;&amp; &lt;div&gt;&lt;/div&gt;}</code></li><li>react 给子元素传组件 <code>&lt;Child div={&lt;div /&gt;}/&gt;</code></li></ul>\n\n<h2>常用网站</h2>\n\n<ul><li><a href=\"http://www.jianshu.com/p/2f575cc35780\">react-navigation使用技巧</a></li></ul>","date":"2017-07-26","postName":"react-native","postUrl":"/posts/2017/07/26/react-native"}]);
+      list.getRef().init([{"config":{"title":"7月追番汇总","layout":"page","description":"7月追番汇总","feature":"2017-07-anime-feature.png","share":true,"date":"2017-07-29"},"content":"<h3>日曜日</h3>\n<ul>\n<li>骑士与魔法</li>\n<li>舞动青春</li>\n</ul>\n<h3>月曜日</h3>\n<ul>\n<li>Princess Principal *</li>\n<li>天使的3p</li>\n</ul>\n<h3>火曜日</h3>\n<ul>\n<li>异世界食堂</li>\n<li>单蠢女孩</li>\n<li>徒然喜欢你</li>\n<li>带着手机闯荡异世界 *</li>\n<li>new game</li>\n</ul>\n<h3>水曜日</h3>\n<ul>\n<li>捏造陷阱</li>\n</ul>\n<h3>木曜日</h3>\n<ul>\n<li>欢迎来到实力至上主义教室</li>\n</ul>\n<h3>金曜日</h3>\n<ul>\n<li>来自深渊 *</li>\n</ul>\n<h3>土曜日</h3>\n<ul>\n<li>FA</li>\n<li>re:creators</li>\n</ul>\n","date":"2017-07-25","postName":"7月追番","postUrl":"/posts/2017/07/25/7月追番"},{"config":{"layout":"post","title":"weex使用过程中遇到的问题","description":"这两周调研weex，总结使用过程中遇到的问题"},"content":"<h2>1. 开发环境</h2>\n<p>目前官方提供的工具为 <a href=\"https://github.com/weexteam/weex-toolkit\">weex-toolkit</a> 按照文档即可完成环境搭建。<br>\n另一个可以用的开发环境 <a href=\"https://github.com/weexteam/weex-hackernews\">weex-hackernews</a></p>\n<h2>2. 开发过程</h2>\n<ul>\n<li>官方提供的标签过少。</li>\n<li>不支持 z-index。</li>\n<li><code>&lt;div&gt;</code> 不支持 overflow-y。</li>\n<li><code>&lt;slide&gt;</code> 轮播图标签中 <code>&lt;indicator&gt;</code> 指示器点的样式没有成功修改过。</li>\n<li><code>&lt;transition&gt;</code> 标签在多个试图切换过程中会出现混乱的情况(<strong>是 weex 的问题还是 vue 的问题待调查</strong>)。</li>\n<li>调用 android 和 ios 系统功能的 api 几乎没有。大部分都要通过自己封装原生的代码来实现功能。</li>\n</ul>\n<h2>3. 多终端调试及编译</h2>\n<ul>\n<li>web 可以实现正常的调试，并且有 <a href=\"https://github.com/vuejs/vue-devtools\">vue-devtools</a> 工具来方便调试。</li>\n<li>native 端只能用 <code>weex-toolkit</code> 进行单页调试，无法调试整个应用。</li>\n<li><a href=\"https://weex.incubator.apache.org/cn/references/advanced/integrate-devtool-to-android.html\">集成 Devtools 到 Android</a> 也没成功。</li>\n<li>各终端的兼容性不好，在 web 端正常显示的程序编译后往往会出现兼容性问题，且因为无法调试整个系统导致修改起来极其麻烦。</li>\n<li><code>weex-toolkit</code> 可以直接通过命令行编译生成 apk 等 native 文件。</li>\n</ul>\n<h2>4. 社区</h2>\n<h2>官方文档真的太少、太简单了。<br>\ngithub相关源码的issue也很少。</h2>\n<h4>ps: <a href=\"https://github.com/alibaba/weex/issues/1494\">关于weex的一些issue汇总</a></h4>\n","date":"2017-07-25","postName":"weex-question","postUrl":"/posts/2017/07/25/weex-question"}]);
     }
   });
-
-  var userMsg = window.vueCom.userMsg('#userMsg', {
-      data: {
-        name: 'sena',
-        img: '/static/img/user.png',
-        birthday: ''
-      }
-    })
-
   var pagination = window.reactCom.pagination('#pagination', {
     defaultCurrent: 3,
     total: 8,
-    pageSize: 1
+    pageSize: 3
   })
-});</script></head><body><div id="userMsg"></div><div class="right-container"><div id="app"></div><div id="pagination"></div></div><script>document.body.innerHeight = window.innerHeight;
+});</script></head><body><div id="loading"><i class="anticon anticon-spin anticon-loading"></i></div><div id="userMsg"></div><script type="text/javascript">$(document).ready(function () {
+  $('#loading').hide();
+  var userMsg = window.vueCom.userMsg('#userMsg', {
+    data: {
+      img: '/Senasiko.github.io/static/img/user.png',
+      msgs: [{"icon":"","value":"sena"},{"icon":"anticon anticon-calendar","value":"1996-01-27"},{"value":"github","icon":"anticon anticon-github","link":"https://github.com/Senasiko"},{"icon":"anticon anticon-weibo","link":"https://www.weibo.com"}]
+    }
+  })
+});</script><div class="right-container"><div id="app"></div><div id="pagination"></div></div><script>document.body.innerHeight = window.innerHeight;
 document.body.innerWidth = window.innerWidth;</script></body></html>

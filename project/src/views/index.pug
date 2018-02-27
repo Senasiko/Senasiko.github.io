@@ -6,8 +6,8 @@ block content
 append script
   -
     var markdowns = [];
-    for (var i = 0; i < pageSize; i ++)
-      markdowns.push(mds[i]);
+    for (var i = 0; i < pageSize; i++)
+      mds[i] &&markdowns.push(mds[i]);
     markdowns = JSON.stringify(markdowns);
     var msgs = JSON.stringify(user.msgs);
   script(type="text/javascript").

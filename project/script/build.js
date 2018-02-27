@@ -17,8 +17,8 @@ const compilePugFile = pugFile =>
   pug.compileFile(path.join(paths.viewDir, pugFile));
 
 // write html file from view to homePage
-const writeHtmlFile = (relativePath, pugRenderFunc, locals={}) => {
-  const dir = path.resolve(paths.homePage, relativePath);
+const writeHtmlFile = (viewPath, pugRenderFunc, locals={}) => {
+  const dir = viewPath;
   fs.ensureDirSync(dir);
   fs.writeFileSync(path.join(dir, 'index.html'), pugRenderFunc({ ...config, ...locals}));
 };
@@ -36,10 +36,12 @@ const renderTags = compilePugFile('tags.pug');
 let mds = handleMdFile();
 
 // render index
-writeHtmlFile('.', renderIndex, { mds, page: 1, total: mds.length, pageSize: config.pageSize });
+writeHtmlFile(paths.homePage, renderIndex, { mds, page: 1, total: mds.length, pageSize: config.pageSize });
 
 // render posts
-fs.removeFileSync(paths.postView);
+fs.removeSync(paths.postView);
+fs.removeSync(paths.pageView);
+fs.removeSync(paths.tagView);
 let pagePosts = [];
 let tagPosts = {};
 let nowPage = 1;
@@ -49,11 +51,11 @@ for (let i = 0; i < mds.length; i++) {
   delete md.fileDir;
   writeHtmlFile(dir, renderPost, md);
   // render page
-  pagePosts.push(md);
+  md && pagePosts.push(md);
   if (pagePosts.length === config.pageSize || i === mds.length -1) {
     // if is first page, filter
     if (nowPage > 1) {
-      writeHtmlFile(`pages/${nowPage}`, renderIndex, { mds: pagePosts, page: nowPage, total: mds.length, pageSize: config.pageSize });
+      writeHtmlFile(path.join(paths.pageView, nowPage + ''), renderIndex, { mds: pagePosts, page: nowPage, total: mds.length, pageSize: config.pageSize });
     }
     nowPage++;
     pagePosts = [];
@@ -72,7 +74,7 @@ for (let i = 0; i < mds.length; i++) {
 }
 
 // render tagPosts
-writeHtmlFile('tags', renderTags, { tagPosts });
+writeHtmlFile(paths.tagView, renderTags, { tagPosts });
 
 /*
 less

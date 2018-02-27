@@ -61,17 +61,24 @@ body {
   border-radius: 100%;
   margin-top: -75px;
 }
+.user-msg .link * {
+  cursor: pointer;
+}
 .user-msg .msg-item {
   cursor: default;
-  font-size: 14px;
+  font-size: 16px;
   transition: font-size 0.3s;
-  color: #000;
+  color: #bbb;
+  line-height: 3;
 }
 .user-msg .msg-item.inline-item {
   display: inline-block;
 }
+.user-msg .msg-item.inline-item i {
+  margin: 5px;
+}
 .user-msg .msg-item:hover {
-  font-size: 20px;
+  color: #000;
 }
 .right-container {
   display: inline-block;

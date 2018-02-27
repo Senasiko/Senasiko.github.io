@@ -20,6 +20,8 @@ module.exports = {
   reactDistPath: resolveSrc('components/reacts/build'),
 
   postView: resolveHome('posts'),
+  pageView: resolveHome('pages'),
+  tagView: resolveHome('tags'),
 
   staticHome: resolveHome('static'),
 };

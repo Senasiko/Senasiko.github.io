@@ -64,16 +64,25 @@ body{
     border-radius: 100%;
     margin-top: -@imgHeight/2;
   }
+  .link{
+    *{
+      cursor: pointer;
+    }
+  }
   .msg-item{
     cursor: default;
-    font-size: 14px;
+    font-size: 16px;
     transition: font-size .3s;
-    color: #000;
+    color: @lineLightColor;
+    line-height: 3;
     &.inline-item{
       display: inline-block;
+      i{
+        margin: 5px;
+      }
     }
     &:hover{
-      font-size: 20px;
+      color: #000;
     }
   }
 }

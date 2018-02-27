@@ -15,6 +15,7 @@ module.exports = {
         value: '1996-01-27',
       },
       {
+        value: 'github',
         icon: 'anticon anticon-github',
         link: 'https://github.com/Senasiko'
       },
