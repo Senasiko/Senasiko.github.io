@@ -49,6 +49,9 @@ body{
     @imgHeight: 150px;
     transform: translateX(0);
     transition: transform 1s;
+    margin-top: @paddingHeight;
+    position: relative;
+    text-align: center;
     &::before{
       content: '';
       margin-top: -@paddingHeight;
@@ -56,9 +59,9 @@ body{
       height: @paddingHeight;
       background-color: @mainColor;
     }
-    margin-top: @paddingHeight;
-    position: relative;
-    text-align: center;
+    i{
+      margin: 0 5px;
+    }
     img{
       position: relative;
       height: @imgHeight;
@@ -79,9 +82,7 @@ body{
       line-height: 3;
       &.inline-item{
         display: inline-block;
-        i{
-          margin: 5px;
-        }
+
       }
       &:hover{
         color: #000;

@@ -56,6 +56,9 @@ body {
   height: 200px;
   background-color: #35cfeb;
 }
+#userMsgMask .user-msg i {
+  margin: 0 5px;
+}
 #userMsgMask .user-msg img {
   position: relative;
   height: 150px;
@@ -76,9 +79,6 @@ body {
 #userMsgMask .user-msg .msg-item.inline-item {
   display: inline-block;
 }
-#userMsgMask .user-msg .msg-item.inline-item i {
-  margin: 5px;
-}
 #userMsgMask .user-msg .msg-item:hover {
   color: #000;
 }
@@ -92,8 +92,8 @@ body {
   margin-right: auto;
   max-width: 980px;
   max-height: 100%;
-  mask-image: -webkit-linear-gradient(#000000 75%, rgba(0, 0, 0, 0.5));
-  -webkit-mask-image: -webkit-linear-gradient(#000000 75%, rgba(0, 0, 0, 0.5));
+  mask-image: -webkit-linear-gradient(#000000 75%, rgba(0, 0, 0, 0.3));
+  -webkit-mask-image: -webkit-linear-gradient(#000000 75%, rgba(0, 0, 0, 0.3));
 }
 .post-list-container {
   overflow-x: auto;

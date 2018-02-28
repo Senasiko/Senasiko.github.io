@@ -8,7 +8,7 @@ module.exports = {
     msgs: [
       {
         icon: '',
-        value: 'sena',
+        value: 'Sena',
         link: '/Senasiko.github.io'
       },
       {
@@ -16,19 +16,19 @@ module.exports = {
         value: '1996-01-27',
       },
       {
-        value: 'github',
-        icon: 'anticon anticon-github',
-        link: 'https://github.com/Senasiko',
-        newTag: true
-      },
-      {
+        link: 'mailto: senasiko@gmail.com',
         value: 'senasiko@gmail.com',
         icon: 'anticon anticon-mail',
       },
       {
-        icon: 'anticon anticon-weibo',
-        link: 'https://www.weibo.com',
+        icon: 'anticon anticon-github',
+        link: 'https://github.com/Senasiko',
         newTag: true
+      },
+
+      {
+        icon: 'anticon anticon-qq',
+        link: 'tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=284476221',
       }
     ]
 
