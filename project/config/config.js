@@ -1,15 +1,15 @@
 module.exports = {
-  rootPath: '/Senasiko.github.io',
+  rootPath: '/new',
   staticPath: 'static', // 静态文件路径
   title: '标题', // 页面标题
   pageSize: 3, // 每页的显示个数
   user: {
-    img: '/Senasiko.github.io/static/img/user.png',
+    img: '/new/static/img/user.png',
     msgs: [
       {
         icon: '',
         value: 'Sena',
-        link: '/Senasiko.github.io'
+        link: '/new'
       },
       {
         icon: 'anticon anticon-calendar',
