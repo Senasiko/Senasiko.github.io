@@ -7,6 +7,10 @@ html
       link(href=`${rootPath}/${staticPath}/css/react.main.css`, rel='stylesheet')
       link(href=`${rootPath}/${staticPath}/css/markdown.css`, rel='stylesheet')
       link(href=`${rootPath}/${staticPath}/css/main.css`, rel='stylesheet')
+      style.
+        #userMsgMask {
+          /*-webkit-mask-image: url('#{rootPath}/#{staticPath}/img/mask.png');*/
+        }
     block script
       script.
         window.rootPath = '#{rootPath}';
@@ -21,18 +25,19 @@ html
       #loading
         i(class='anticon anticon-spin anticon-loading')
     block left
-      #userMsg
-      - var msgs = JSON.stringify(user.msgs);
-      script(type="text/javascript").
-        $(document).ready(function () {
-          $('#loading').hide();
-          var userMsg = window.vueCom.userMsg('#userMsg', {
-            data: {
-              img: '#{user.img}',
-              msgs: !{msgs}
-            }
-          })
-        });
+      #userMsgMask
+        #userMsg
+        - var msgs = JSON.stringify(user.msgs);
+        script(type="text/javascript").
+          $(document).ready(function () {
+            $('#loading').hide();
+            var userMsg = window.vueCom.userMsg('#userMsg', {
+              data: {
+                img: '#{user.img}',
+                msgs: !{msgs}
+              }
+            })
+          });
     block content
     block foot
       script.

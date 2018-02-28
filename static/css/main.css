@@ -35,49 +35,51 @@ body {
 #pagination {
   float: right;
 }
-.user-msg {
+#userMsgMask {
   flex: 0 0 300px;
   height: 100%;
   display: inline-block;
   background: #fff;
   box-shadow: 0 0 20px -3px;
+}
+#userMsgMask .user-msg {
   transform: translateX(0);
   transition: transform 1s;
   margin-top: 200px;
   position: relative;
   text-align: center;
 }
-.user-msg::before {
+#userMsgMask .user-msg::before {
   content: '';
   margin-top: -200px;
   display: block;
   height: 200px;
   background-color: #35cfeb;
 }
-.user-msg img {
+#userMsgMask .user-msg img {
   position: relative;
   height: 150px;
   width: 150px;
   border-radius: 100%;
   margin-top: -75px;
 }
-.user-msg .link * {
+#userMsgMask .user-msg .link * {
   cursor: pointer;
 }
-.user-msg .msg-item {
+#userMsgMask .user-msg .msg-item {
   cursor: default;
   font-size: 16px;
   transition: font-size 0.3s;
   color: #bbb;
   line-height: 3;
 }
-.user-msg .msg-item.inline-item {
+#userMsgMask .user-msg .msg-item.inline-item {
   display: inline-block;
 }
-.user-msg .msg-item.inline-item i {
+#userMsgMask .user-msg .msg-item.inline-item i {
   margin: 5px;
 }
-.user-msg .msg-item:hover {
+#userMsgMask .user-msg .msg-item:hover {
   color: #000;
 }
 .right-container {
@@ -90,6 +92,8 @@ body {
   margin-right: auto;
   max-width: 980px;
   max-height: 100%;
+  mask-image: -webkit-linear-gradient(#000000 75%, rgba(0, 0, 0, 0.5));
+  -webkit-mask-image: -webkit-linear-gradient(#000000 75%, rgba(0, 0, 0, 0.5));
 }
 .post-list-container {
   overflow-x: auto;

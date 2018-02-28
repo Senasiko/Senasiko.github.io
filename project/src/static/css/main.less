@@ -5,6 +5,7 @@ body{
   background: #f7f7f7;
   overflow: hidden;
   display: flex;
+
 }
 .flex{
   flex: 1;
@@ -40,51 +41,54 @@ body{
 #pagination{
   float: right;
 }
-.user-msg{
-  @paddingHeight: 200px;
-  @imgHeight: 150px;
+#userMsgMask{
   .left-container;
   .panel;
-  transform: translateX(0);
-  transition: transform 1s;
-  &::before{
-    content: '';
-    margin-top: -@paddingHeight;
-    display: block;
-    height: @paddingHeight;
-    background-color: @mainColor;
-  }
-  margin-top: @paddingHeight;
-  position: relative;
-  text-align: center;
-  img{
-    position: relative;
-    height: @imgHeight;
-    width: @imgHeight;
-    border-radius: 100%;
-    margin-top: -@imgHeight/2;
-  }
-  .link{
-    *{
-      cursor: pointer;
+  .user-msg{
+    @paddingHeight: 200px;
+    @imgHeight: 150px;
+    transform: translateX(0);
+    transition: transform 1s;
+    &::before{
+      content: '';
+      margin-top: -@paddingHeight;
+      display: block;
+      height: @paddingHeight;
+      background-color: @mainColor;
     }
-  }
-  .msg-item{
-    cursor: default;
-    font-size: 16px;
-    transition: font-size .3s;
-    color: @lineLightColor;
-    line-height: 3;
-    &.inline-item{
-      display: inline-block;
-      i{
-        margin: 5px;
+    margin-top: @paddingHeight;
+    position: relative;
+    text-align: center;
+    img{
+      position: relative;
+      height: @imgHeight;
+      width: @imgHeight;
+      border-radius: 100%;
+      margin-top: -@imgHeight/2;
+    }
+    .link{
+      *{
+        cursor: pointer;
       }
     }
-    &:hover{
-      color: #000;
+    .msg-item{
+      cursor: default;
+      font-size: 16px;
+      transition: font-size .3s;
+      color: @lineLightColor;
+      line-height: 3;
+      &.inline-item{
+        display: inline-block;
+        i{
+          margin: 5px;
+        }
+      }
+      &:hover{
+        color: #000;
+      }
     }
   }
+
 }
 .right-container{
   display: inline-block;
@@ -96,6 +100,8 @@ body{
   margin-right: auto;
   max-width: 980px;
   max-height: 100%;
+  mask-image: -webkit-linear-gradient(rgba(0,0,0,1) 75%, rgba(0,0,0,0.3));
+  -webkit-mask-image: -webkit-linear-gradient(rgba(0,0,0,1) 75%, rgba(0,0,0,0.3));
 }
 .post-list-container{
   overflow-x: auto;
