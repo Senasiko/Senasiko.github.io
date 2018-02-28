@@ -1,0 +1,176 @@
+body {
+  background: #f7f7f7;
+  overflow: hidden;
+  display: flex;
+}
+.flex {
+  flex: 1;
+}
+#loading {
+  position: fixed;
+  font-size: 50px;
+  background: rgba(255, 255, 255, 0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+#loading i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(50%);
+  color: #35cfeb;
+}
+.panel {
+  background: #fff;
+  box-shadow: 0 0 20px -3px;
+}
+.left-container {
+  flex: 0 0 300px;
+  height: 100%;
+  display: inline-block;
+}
+#pagination {
+  float: right;
+}
+#userMsgMask {
+  flex: 0 0 300px;
+  height: 100%;
+  display: inline-block;
+  background: #fff;
+  box-shadow: 0 0 20px -3px;
+}
+#userMsgMask .user-msg {
+  transform: translateX(0);
+  transition: transform 1s;
+  margin-top: 200px;
+  position: relative;
+  text-align: center;
+}
+#userMsgMask .user-msg::before {
+  content: '';
+  margin-top: -200px;
+  display: block;
+  height: 200px;
+  background-color: #35cfeb;
+}
+#userMsgMask .user-msg i {
+  margin: 0 5px;
+}
+#userMsgMask .user-msg img {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+  margin-top: -75px;
+}
+#userMsgMask .user-msg .link * {
+  cursor: pointer;
+}
+#userMsgMask .user-msg .msg-item {
+  cursor: default;
+  font-size: 16px;
+  transition: font-size 0.3s;
+  color: #bbb;
+  line-height: 3;
+}
+#userMsgMask .user-msg .msg-item.inline-item {
+  display: inline-block;
+}
+#userMsgMask .user-msg .msg-item:hover {
+  color: #000;
+}
+.right-container {
+  display: inline-block;
+  flex: 1;
+  align-self: start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 980px;
+  max-height: 100%;
+  mask-image: -webkit-linear-gradient(#000000 75%, rgba(0, 0, 0, 0.3));
+  -webkit-mask-image: -webkit-linear-gradient(#000000 75%, rgba(0, 0, 0, 0.3));
+}
+.post-list-container {
+  overflow-x: auto;
+}
+.post-list {
+  padding-top: 10px;
+}
+.post-item {
+  background: #fff;
+  box-shadow: 0 0 20px -3px;
+  width: 100%;
+  box-shadow: 0 0 10px -3px;
+  margin-top: 15px;
+  padding: 10px 20px 10px 0;
+}
+.post-item:first-child {
+  margin-top: 0;
+}
+.post-item > [class*=post-item] {
+  padding-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+}
+.post-item .post-item-title {
+  border-left: 3px solid #35cfeb;
+  position: relative;
+}
+.post-item .post-item-title a {
+  color: #000;
+  cursor: pointer;
+}
+.post-item .post-item-date {
+  color: #bbb;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+}
+.post-item .post-item-description {
+  color: #bbb;
+}
+.post-item .post-item-operator {
+  display: flex;
+}
+.post-item .post-item-operator .post-item-goAll {
+  color: #bbb;
+}
+.post-item .post-item-operator .post-item-goAll:hover {
+  cursor: pointer;
+  color: #000;
+}
+.post-detail {
+  padding: 15px;
+}
+.tag-posts > div {
+  margin: 10px 0;
+}
+.tag-posts .input-div {
+  text-align: center;
+}
+.tag-posts .input-div input {
+  max-width: 500px;
+}
+.arrow::after,
+.arrow::before {
+  border: 10px solid transparent;
+  border-left: 10px solid #fff;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: -20px;
+  content: ' ';
+}
+.arrow::before {
+  border-left-color: #000;
+  right: -21px;
+}

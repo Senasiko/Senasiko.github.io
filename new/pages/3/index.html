@@ -1,0 +1,23 @@
+<html><head><title>标题</title><link href="/Senasiko.github.io/static/css/app.css" rel="stylesheet"/><link href="/Senasiko.github.io/static/css/react.main.css" rel="stylesheet"/><link href="/Senasiko.github.io/static/css/markdown.css" rel="stylesheet"/><link href="/Senasiko.github.io/static/css/main.css" rel="stylesheet"/><style>#userMsgMask {
+  /*-webkit-mask-image: url('/Senasiko.github.io/static/img/mask.png');*/
+}</style><script>window.rootPath = '/Senasiko.github.io';</script><script src="/Senasiko.github.io/static/js/jquery-3.3.1.min.js"></script><script src="/Senasiko.github.io/static/js/router.js"></script><script src="/Senasiko.github.io/static/js/react.main.js"></script><script src="/Senasiko.github.io/static/js/vue.manifest.js"></script><script src="/Senasiko.github.io/static/js/vue.vendor.js"></script><script src="/Senasiko.github.io/static/js/vue.app.js"></script><script type="text/javascript">$(document).ready(function() {
+  var list = window.vueCom.postList('#app', {
+    mounted: function() {
+      list.getRef().init([{"config":{"title":"7月追番汇总","layout":"page","description":"7月追番汇总","feature":"2017-07-anime-feature.png","share":true,"date":"2017-07-29"},"content":"<h3>日曜日</h3>\n<ul>\n<li>骑士与魔法</li>\n<li>舞动青春</li>\n</ul>\n<h3>月曜日</h3>\n<ul>\n<li>Princess Principal *</li>\n<li>天使的3p</li>\n</ul>\n<h3>火曜日</h3>\n<ul>\n<li>异世界食堂</li>\n<li>单蠢女孩</li>\n<li>徒然喜欢你</li>\n<li>带着手机闯荡异世界 *</li>\n<li>new game</li>\n</ul>\n<h3>水曜日</h3>\n<ul>\n<li>捏造陷阱</li>\n</ul>\n<h3>木曜日</h3>\n<ul>\n<li>欢迎来到实力至上主义教室</li>\n</ul>\n<h3>金曜日</h3>\n<ul>\n<li>来自深渊 *</li>\n</ul>\n<h3>土曜日</h3>\n<ul>\n<li>FA</li>\n<li>re:creators</li>\n</ul>\n","date":"2017-07-25","postName":"7月追番","postUrl":"/posts/2017/07/25/7月追番","postAbsUrl":"/Senasiko.github.io/posts/2017/07/25/7月追番"},{"config":{"layout":"post","title":"weex使用过程中遇到的问题","description":"这两周调研weex，总结使用过程中遇到的问题"},"content":"<h2>1. 开发环境</h2>\n<p>目前官方提供的工具为 <a href=\"https://github.com/weexteam/weex-toolkit\">weex-toolkit</a> 按照文档即可完成环境搭建。<br>\n另一个可以用的开发环境 <a href=\"https://github.com/weexteam/weex-hackernews\">weex-hackernews</a></p>\n<h2>2. 开发过程</h2>\n<ul>\n<li>官方提供的标签过少。</li>\n<li>不支持 z-index。</li>\n<li><code>&lt;div&gt;</code> 不支持 overflow-y。</li>\n<li><code>&lt;slide&gt;</code> 轮播图标签中 <code>&lt;indicator&gt;</code> 指示器点的样式没有成功修改过。</li>\n<li><code>&lt;transition&gt;</code> 标签在多个试图切换过程中会出现混乱的情况(<strong>是 weex 的问题还是 vue 的问题待调查</strong>)。</li>\n<li>调用 android 和 ios 系统功能的 api 几乎没有。大部分都要通过自己封装原生的代码来实现功能。</li>\n</ul>\n<h2>3. 多终端调试及编译</h2>\n<ul>\n<li>web 可以实现正常的调试，并且有 <a href=\"https://github.com/vuejs/vue-devtools\">vue-devtools</a> 工具来方便调试。</li>\n<li>native 端只能用 <code>weex-toolkit</code> 进行单页调试，无法调试整个应用。</li>\n<li><a href=\"https://weex.incubator.apache.org/cn/references/advanced/integrate-devtool-to-android.html\">集成 Devtools 到 Android</a> 也没成功。</li>\n<li>各终端的兼容性不好，在 web 端正常显示的程序编译后往往会出现兼容性问题，且因为无法调试整个系统导致修改起来极其麻烦。</li>\n<li><code>weex-toolkit</code> 可以直接通过命令行编译生成 apk 等 native 文件。</li>\n</ul>\n<h2>4. 社区</h2>\n<h2>官方文档真的太少、太简单了。<br>\ngithub相关源码的issue也很少。</h2>\n<h4>ps: <a href=\"https://github.com/alibaba/weex/issues/1494\">关于weex的一些issue汇总</a></h4>\n","date":"2017-07-25","postName":"weex-question","postUrl":"/posts/2017/07/25/weex-question","postAbsUrl":"/Senasiko.github.io/posts/2017/07/25/weex-question"}]);
+    }
+  });
+  var pagination = window.reactCom.pagination('#pagination', {
+    defaultCurrent: 3,
+    total: 8,
+    pageSize: 3
+  })
+});</script></head><body><div id="loading"><i class="anticon anticon-spin anticon-loading"></i></div><div id="userMsgMask"><div id="userMsg"></div><script type="text/javascript">$(document).ready(function () {
+  $('#loading').hide();
+  var userMsg = window.vueCom.userMsg('#userMsg', {
+    data: {
+      img: '/Senasiko.github.io/static/img/user.png',
+      msgs: [{"icon":"","value":"Sena","link":"/Senasiko.github.io"},{"icon":"anticon anticon-calendar","value":"1996-01-27"},{"link":"mailto: senasiko@gmail.com","value":"senasiko@gmail.com","icon":"anticon anticon-mail"},{"icon":"anticon anticon-github","link":"https://github.com/Senasiko","newTag":true},{"icon":"anticon anticon-qq","link":"tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=284476221"}]
+    }
+  })
+});</script></div><div class="right-container"><div id="app"></div><div id="pagination"></div></div><script>document.body.innerHeight = window.innerHeight;
+document.body.innerWidth = window.innerWidth;</script></body></html>

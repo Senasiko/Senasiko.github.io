@@ -1,0 +1,195 @@
+@mainColor: #35cfeb;
+@lineLightColor: #bbb;
+@mainModalBackground: rgba(255, 255, 255, 0.5);
+body{
+  background: #f7f7f7;
+  overflow: hidden;
+  display: flex;
+
+}
+.flex{
+  flex: 1;
+}
+#loading{
+  position: fixed;
+  font-size: 50px;
+  background: @mainModalBackground;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  i{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(50%);
+    color: @mainColor;
+  }
+
+
+}
+.panel{
+  background: #fff;
+  box-shadow: 0 0 20px -3px;
+}
+.left-container{
+  flex: 0 0 300px;
+  height: 100%;
+  display: inline-block;
+}
+#pagination{
+  float: right;
+}
+#userMsgMask{
+  .left-container;
+  .panel;
+  .user-msg{
+    @paddingHeight: 200px;
+    @imgHeight: 150px;
+    transform: translateX(0);
+    transition: transform 1s;
+    margin-top: @paddingHeight;
+    position: relative;
+    text-align: center;
+    &::before{
+      content: '';
+      margin-top: -@paddingHeight;
+      display: block;
+      height: @paddingHeight;
+      background-color: @mainColor;
+    }
+    i{
+      margin: 0 5px;
+    }
+    img{
+      position: relative;
+      height: @imgHeight;
+      width: @imgHeight;
+      border-radius: 100%;
+      margin-top: -@imgHeight/2;
+    }
+    .link{
+      *{
+        cursor: pointer;
+      }
+    }
+    .msg-item{
+      cursor: default;
+      font-size: 16px;
+      transition: font-size .3s;
+      color: @lineLightColor;
+      line-height: 3;
+      &.inline-item{
+        display: inline-block;
+
+      }
+      &:hover{
+        color: #000;
+      }
+    }
+  }
+
+}
+.right-container{
+  display: inline-block;
+  flex: 1;
+  align-self: start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 980px;
+  max-height: 100%;
+  mask-image: -webkit-linear-gradient(rgba(0,0,0,1) 75%, rgba(0,0,0,0.3));
+  -webkit-mask-image: -webkit-linear-gradient(rgba(0,0,0,1) 75%, rgba(0,0,0,0.3));
+}
+.post-list-container{
+  overflow-x: auto;
+}
+.post-list{
+  padding-top: 10px;
+}
+.post-item{
+  .panel;
+  width: 100%;
+  box-shadow: 0 0 10px -3px;
+  margin-top: 15px;
+  padding: 10px 20px 10px 0;
+  &:first-child{
+    margin-top: 0;
+  }
+  &>[class*=post-item] {
+    padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+  .post-item-title{
+    border-left: 3px solid @mainColor;
+    position: relative;
+    a{
+      color: #000;
+      cursor: pointer;
+    }
+  }
+  .post-item-date{
+    color: @lineLightColor;
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    bottom: 6px;
+  }
+  .post-item-description{
+    color: @lineLightColor;
+  }
+  .post-item-content{
+  }
+  .post-item-operator{
+    display: flex;
+    .post-item-goAll{
+      color: @lineLightColor;
+      &:hover{
+        cursor: pointer;
+        color: #000;
+      }
+    }
+  }
+}
+
+.post-detail{
+  padding: 15px;
+}
+
+.tag-posts{
+  &>div{
+    margin: 10px 0;
+
+  }
+  .input-div{
+    text-align: center;
+    input{
+      max-width: 500px;
+    }
+  }
+
+}
+
+.arrow{
+  &::after, &::before {
+    border: 10px solid transparent;
+    border-left: 10px solid #fff;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    content: ' '
+  }
+
+  &::before {
+    border-left-color: #000;
+    right: -21px;
+  }
+}
