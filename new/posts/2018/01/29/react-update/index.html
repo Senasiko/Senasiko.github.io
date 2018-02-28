@@ -1,11 +1,11 @@
-<html><head><title>react-update</title><link href="/Senasiko.github.io/static/css/app.css" rel="stylesheet"/><link href="/Senasiko.github.io/static/css/react.main.css" rel="stylesheet"/><link href="/Senasiko.github.io/static/css/markdown.css" rel="stylesheet"/><link href="/Senasiko.github.io/static/css/main.css" rel="stylesheet"/><style>#userMsgMask {
-  /*-webkit-mask-image: url('/Senasiko.github.io/static/img/mask.png');*/
-}</style><script>window.rootPath = '/Senasiko.github.io';</script><script src="/Senasiko.github.io/static/js/jquery-3.3.1.min.js"></script><script src="/Senasiko.github.io/static/js/router.js"></script><script src="/Senasiko.github.io/static/js/react.main.js"></script><script src="/Senasiko.github.io/static/js/vue.manifest.js"></script><script src="/Senasiko.github.io/static/js/vue.vendor.js"></script><script src="/Senasiko.github.io/static/js/vue.app.js"></script></head><body><div id="loading"><i class="anticon anticon-spin anticon-loading"></i></div><div id="userMsgMask"><div id="userMsg"></div><script type="text/javascript">$(document).ready(function () {
+<html><head><title>react-update</title><link href="/new/static/css/app.css" rel="stylesheet"/><link href="/new/static/css/react.main.css" rel="stylesheet"/><link href="/new/static/css/markdown.css" rel="stylesheet"/><link href="/new/static/css/main.css" rel="stylesheet"/><style>#userMsgMask {
+  /*-webkit-mask-image: url('/new/static/img/mask.png');*/
+}</style><script>window.rootPath = '/new';</script><script src="/new/static/js/jquery-3.3.1.min.js"></script><script src="/new/static/js/router.js"></script><script src="/new/static/js/react.main.js"></script><script src="/new/static/js/vue.manifest.js"></script><script src="/new/static/js/vue.vendor.js"></script><script src="/new/static/js/vue.app.js"></script></head><body><div id="loading"><i class="anticon anticon-spin anticon-loading"></i></div><div id="userMsgMask"><div id="userMsg"></div><script type="text/javascript">$(document).ready(function () {
   $('#loading').hide();
   var userMsg = window.vueCom.userMsg('#userMsg', {
     data: {
-      img: '/Senasiko.github.io/static/img/user.png',
-      msgs: [{"icon":"","value":"Sena","link":"/Senasiko.github.io"},{"icon":"anticon anticon-calendar","value":"1996-01-27"},{"link":"mailto: senasiko@gmail.com","value":"senasiko@gmail.com","icon":"anticon anticon-mail"},{"icon":"anticon anticon-github","link":"https://github.com/Senasiko","newTag":true},{"icon":"anticon anticon-qq","link":"tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=284476221"}]
+      img: '/new/static/img/user.png',
+      msgs: [{"icon":"","value":"Sena","link":"/new"},{"icon":"anticon anticon-calendar","value":"1996-01-27"},{"link":"mailto: senasiko@gmail.com","value":"senasiko@gmail.com","icon":"anticon anticon-mail"},{"icon":"anticon anticon-github","link":"https://github.com/Senasiko","newTag":true},{"icon":"anticon anticon-qq","link":"tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=284476221"}]
     }
   })
 });</script></div><div class="right-container"><div class="panel post-detail"><h1>react redux reselect 更新机制验证</h1><div class="markdown-body"><p>react 本身更新数组和对象，类似于 array.push() 时，是否重新渲染组件呢？<br>
