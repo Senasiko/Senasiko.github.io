@@ -42,6 +42,9 @@ links:
   - title: Works
     url: http://www.senasiko.com/works
     external: true
+  - title: newSite
+    url: http://www.senasiko.com/new
+    external: true
 #  - title: GitHub
 #    url: https://github.com/hacke2
 #    external: true
