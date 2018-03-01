@@ -1,7 +1,7 @@
 module.exports = {
   rootPath: '/new',
   staticPath: 'static', // 静态文件路径
-  title: '标题', // 页面标题
+  title: 'Senasiko', // 页面标题
   pageSize: 3, // 每页的显示个数
   user: {
     img: '/new/static/img/user.png',
